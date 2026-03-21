@@ -55,32 +55,8 @@ const blogPosts = [
     authorImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     featured: false,
   },
-  {
-    id: 5,
-    title: "The Rise of Sustainable Homes in Urban Areas",
-    excerpt:
-      "How eco-friendly features are becoming essential for modern homebuyers.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Sustainability",
-    date: "February 20, 2024",
-    readTime: "5 min read",
-    author: "Lisa Wong",
-    authorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Investment Properties: Where to Buy in 2024",
-    excerpt:
-      "Emerging neighborhoods and markets with high potential for real estate investors.",
-    image: "https://images.unsplash.com/photo-1582408921715-18e7806367c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Investment",
-    date: "February 15, 2024",
-    readTime: "8 min read",
-    author: "Robert Martinez",
-    authorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
-    featured: false,
-  },
+
+
 ];
 
 const Blogs = () => {
