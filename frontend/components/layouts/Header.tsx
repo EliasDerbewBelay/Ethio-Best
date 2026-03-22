@@ -17,7 +17,6 @@ const NAVIGATION_LINKS: NavLink[] = [
   { title: "Home", href: "/" },
   { title: "About Us", href: "/about" },
   { title: "Real Estates", href: "/estates" },
-  { title: "Virtual Touring", href: "/touring" },
   { title: "News and Blog", href: "/news" },
   { title: "Contact Us", href: "/contact" },
 ];

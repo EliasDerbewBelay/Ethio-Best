@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Rubik, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
+import ChatContainer from "@/components/chat/ChatContainer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <ChatContainer />
       </body>
     </html>
   );
