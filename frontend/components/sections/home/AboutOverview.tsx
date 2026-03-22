@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import aboutus from "@/public/RealEstateImage/aboutus.jpeg"
 
 const AboutOverview = () => {
   return (
@@ -13,7 +14,7 @@ const AboutOverview = () => {
               <div className="relative col-span-2 rounded-2xl overflow-hidden shadow-2xl">
                 <div className="relative h-64 md:h-80 lg:h-96">
                   <Image
-                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    src={aboutus}
                     alt="Luxury real estate property"
                     fill
                     className="object-cover"

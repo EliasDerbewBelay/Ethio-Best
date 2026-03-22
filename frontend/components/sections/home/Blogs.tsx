@@ -8,12 +8,14 @@ const blogPosts = [
     title: "10 Tips for First-Time Home Buyers in 2024",
     excerpt:
       "Essential advice for navigating the real estate market, from mortgage pre-approval to closing the deal.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Buying Tips",
     date: "March 15, 2024",
     readTime: "5 min read",
     author: "Sarah Johnson",
-    authorImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    authorImage:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     featured: true,
   },
   {
@@ -21,12 +23,14 @@ const blogPosts = [
     title: "Top Luxury Home Trends to Watch This Year",
     excerpt:
       "Discover the latest in luxury real estate, from smart home technology to sustainable design features.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Luxury Living",
     date: "March 10, 2024",
     readTime: "4 min read",
     author: "Michael Chen",
-    authorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    authorImage:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     featured: false,
   },
   {
@@ -34,12 +38,14 @@ const blogPosts = [
     title: "How to Increase Your Property Value Before Selling",
     excerpt:
       "Strategic renovations and improvements that deliver the highest return on investment.",
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Selling Tips",
     date: "March 5, 2024",
     readTime: "6 min read",
     author: "Emily Rodriguez",
-    authorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    authorImage:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     featured: false,
   },
   {
@@ -47,16 +53,16 @@ const blogPosts = [
     title: "Understanding Mortgage Rates: A Complete Guide",
     excerpt:
       "Everything you need to know about current mortgage rates and how they affect your buying power.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Finance",
     date: "February 28, 2024",
     readTime: "7 min read",
     author: "David Thompson",
-    authorImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    authorImage:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     featured: false,
   },
-
-
 ];
 
 const Blogs = () => {
@@ -258,33 +264,6 @@ const Blogs = () => {
             </article>
           ))}
         </div>
-
-        {/* Newsletter Section */}
-        <div className="mt-16 bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-xl">
-          <div className="grid lg:grid-cols-2 gap-8 p-8 md:p-12">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                Subscribe to Our Newsletter
-              </h3>
-              <p className="text-gray-300">
-                Get the latest real estate insights, market updates, and
-                exclusive property listings delivered to your inbox.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
-              />
-              <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap">
-                Subscribe Now
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* View All Button */}
         <div className="text-center mt-12">
           <button className="inline-flex items-center gap-2 px-8 py-3 border-2 border-amber-500 text-amber-600 font-semibold rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300">

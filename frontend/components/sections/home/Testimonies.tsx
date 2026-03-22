@@ -9,7 +9,8 @@ const testimonials = [
     name: "Sarah Johnson",
     location: "Beverly Hills, CA",
     role: "Homeowner",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
       "Ethio Best Real Estate made our dream of owning a luxury home a reality. Their team was professional, attentive, and went above and beyond to find us the perfect property. The entire process was seamless from start to finish.",
@@ -21,7 +22,8 @@ const testimonials = [
     name: "Michael Chen",
     location: "Downtown LA, CA",
     role: "Investor",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
       "As a real estate investor, I've worked with many agencies, but Ethio Best Real Estate stands out. Their market knowledge and negotiation skills helped me secure an amazing investment property at the best price.",
@@ -33,7 +35,8 @@ const testimonials = [
     name: "Emily Rodriguez",
     location: "Malibu, CA",
     role: "First-time Buyer",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
       "I was nervous about buying my first home, but the team at Ethio Best Real Estate guided me through every step. They answered all my questions and made sure I felt confident in my decision. Highly recommended!",
@@ -45,7 +48,8 @@ const testimonials = [
     name: "David Thompson",
     location: "Santa Monica, CA",
     role: "Property Seller",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
       "Sold my property within weeks at above asking price! Their marketing strategy and professional presentation attracted multiple offers. The team's expertise and dedication truly exceeded my expectations.",
@@ -57,7 +61,8 @@ const testimonials = [
     name: "Lisa Wong",
     location: "Aspen, CO",
     role: "Luxury Buyer",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
       "Exceptional service from start to finish. The team understood exactly what we were looking for and found us our dream mountain retreat. Their attention to detail and client care is unmatched.",
@@ -69,7 +74,8 @@ const testimonials = [
     name: "Robert Martinez",
     location: "Austin, TX",
     role: "Renter",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 4,
     testimonial:
       "Great experience finding my new rental home. The agents were responsive, professional, and helped me find a place that matched all my requirements. Would definitely use their services again.",
@@ -144,16 +150,17 @@ const Testimonies = () => {
         </div>
 
         {/* Featured Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="absolute top-4 right-4 flex gap-2 z-10">
+        <div className="max-w-2xl mx-auto mb-10">
+          <div className="relative bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+            {/* Play/Pause Button - Slightly smaller */}
+            <div className="absolute top-3 right-3 flex gap-2 z-10">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all"
+                className="p-1.5 bg-white/90 backdrop-blur-sm rounded-full shadow-md hover:bg-white transition-all cursor-pointer"
               >
                 {isPlaying ? (
                   <svg
-                    className="w-4 h-4 text-gray-700"
+                    className="w-3.5 h-3.5 text-gray-700"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -167,7 +174,7 @@ const Testimonies = () => {
                   </svg>
                 ) : (
                   <svg
-                    className="w-4 h-4 text-gray-700"
+                    className="w-3.5 h-3.5 text-gray-700"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -189,12 +196,12 @@ const Testimonies = () => {
               </button>
             </div>
 
-            <div className="p-8 md:p-12">
+            <div className="p-6">
               <div className="flex flex-col items-center text-center">
-                {/* Quote Icon */}
-                <div className="mb-6">
+                {/* Quote Icon - Scaled down */}
+                <div className="mb-3">
                   <svg
-                    className="w-12 h-12 text-amber-500 opacity-50"
+                    className="w-8 h-8 text-amber-500 opacity-40"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -202,19 +209,19 @@ const Testimonies = () => {
                   </svg>
                 </div>
 
-                {/* Testimonial Text */}
-                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
+                {/* Testimonial Text - Reduced text size */}
+                <p className="text-lg text-gray-700 leading-snug mb-4 px-4">
                   "{testimonials[activeIndex].testimonial}"
                 </p>
 
-                {/* Rating */}
-                <div className="mb-6">
+                {/* Rating - Tighter margin */}
+                <div className="mb-4 scale-90">
                   {renderStars(testimonials[activeIndex].rating)}
                 </div>
 
-                {/* Client Info */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-4 border-amber-500">
+                {/* Client Info - More compact */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-500 shrink-0">
                     <Image
                       src={testimonials[activeIndex].image}
                       alt={testimonials[activeIndex].name}
@@ -223,45 +230,27 @@ const Testimonies = () => {
                     />
                   </div>
                   <div className="text-left">
-                    <h4 className="text-xl font-bold text-gray-900">
+                    <h4 className="text-base font-bold text-gray-900 leading-tight">
                       {testimonials[activeIndex].name}
                     </h4>
-                    <p className="text-gray-600">
+                    <p className="text-xs text-gray-500">
                       {testimonials[activeIndex].role} •{" "}
                       {testimonials[activeIndex].location}
                     </p>
-                    <p className="text-sm text-amber-600 font-semibold mt-1">
+                    <p className="text-[11px] text-amber-600 font-bold mt-0.5">
                       Purchased: {testimonials[activeIndex].property}
                     </p>
                   </div>
                 </div>
 
-                {/* Carousel Navigation Dots */}
-                <div className="flex gap-2 mt-4">
-                  {testimonials.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        setActiveIndex(idx);
-                        setIsPlaying(false);
-                      }}
-                      className={`transition-all duration-300 rounded-full ${
-                        idx === activeIndex
-                          ? "w-8 h-2 bg-amber-500"
-                          : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                {/* Navigation Arrows */}
-                <div className="flex gap-4 mt-6">
+                {/* Navigation - Combined dots and arrows for space */}
+                <div className="flex items-center gap-6 mt-2">
                   <button
                     onClick={prevTestimonial}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-amber-500 hover:text-white transition-all duration-300"
+                    className="p-1.5 rounded-full bg-gray-50 hover:bg-amber-500 hover:text-white transition-colors cursor-pointer"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -274,12 +263,30 @@ const Testimonies = () => {
                       />
                     </svg>
                   </button>
+
+                  <div className="flex gap-1.5">
+                    {testimonials.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          setActiveIndex(idx);
+                          setIsPlaying(false);
+                        }}
+                        className={`transition-all duration-300 rounded-full cursor-pointer ${
+                          idx === activeIndex
+                            ? "w-6 h-1.5 bg-amber-500"
+                            : "w-1.5 h-1.5 bg-gray-200"
+                        }`}
+                      />
+                    ))}
+                  </div>
+
                   <button
                     onClick={nextTestimonial}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-amber-500 hover:text-white transition-all duration-300"
+                    className="p-1.5 rounded-full bg-gray-50 hover:bg-amber-500 hover:text-white transition-colors cursor-pointer"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -294,67 +301,6 @@ const Testimonies = () => {
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Additional Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.slice(0, 3).map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Rating */}
-              <div className="mb-4">{renderStars(testimonial.rating)}</div>
-
-              {/* Testimonial */}
-              <p className="text-gray-600 mb-6 line-clamp-4">
-                "{testimonial.testimonial}"
-              </p>
-
-              {/* Client Info */}
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-gray-500">
-                    {testimonial.location}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-16 pt-8 border-t border-gray-200">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-2xl font-bold text-gray-900">500+</div>
-              <div className="text-sm text-gray-500">Happy Clients</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">98%</div>
-              <div className="text-sm text-gray-500">Satisfaction Rate</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">4.9/5</div>
-              <div className="text-sm text-gray-500">Average Rating</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">150+</div>
-              <div className="text-sm text-gray-500">5-Star Reviews</div>
             </div>
           </div>
         </div>
