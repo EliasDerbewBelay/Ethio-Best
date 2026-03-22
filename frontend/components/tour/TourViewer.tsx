@@ -43,17 +43,12 @@ function Environment({ scene, onNavigate }: { scene: TourScene; onNavigate: (id:
 
 interface TourViewerProps {
   scenes: TourScene[];
-  initialSceneId: string;
+  activeSceneId: string;
+  onNavigate: (id: string) => void;
 }
 
-export default function TourViewer({ scenes, initialSceneId }: TourViewerProps) {
-  const [activeSceneId, setActiveSceneId] = useState(initialSceneId);
+export default function TourViewer({ scenes, activeSceneId, onNavigate }: TourViewerProps) {
   const activeScene = scenes.find((s) => s.id === activeSceneId) || scenes[0];
-
-  const handleNavigate = (id: string) => {
-    setActiveSceneId(id);
-    console.log(`Navigating to scene: ${id}`);
-  };
 
   return (
     <div className="w-full h-full bg-slate-900 ring-4 ring-purple-900/20 rounded-[2rem] overflow-hidden shadow-2xl relative">
@@ -76,7 +71,7 @@ export default function TourViewer({ scenes, initialSceneId }: TourViewerProps) 
             maxDistance={200}
           />
 
-          <Environment scene={activeScene} onNavigate={handleNavigate} />
+          <Environment scene={activeScene} onNavigate={onNavigate} />
         </Suspense>
       </Canvas>
 
