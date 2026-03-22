@@ -8,18 +8,8 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-interface Property {
-  id: number;
-  title: string;
-  location: string;
-  price: number;
-  beds: number;
-  baths: number;
-  sqft: number;
-  isFeatured: boolean;
-  status: string;
-  image: string;
-}
+import { Property } from "@/types/property";
+import Link from "next/link";
 
 export default function PropertyCard({ property }: { property: Property }) {
   return (
@@ -34,17 +24,21 @@ export default function PropertyCard({ property }: { property: Property }) {
           sizes="(max-width: 768px) 100vw, 384px"
         />
 
-        {property.isFeatured && (
-          <div className="absolute top-4 left-4 bg-[#FF5A5F] text-white text-[10px] font-bold px-3 py-1.5 rounded-md flex items-center gap-1 uppercase tracking-wider z-10">
-            <span className="text-xs">⚡</span> FEATURED
+        {property.featured && (
+          <div className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-md flex items-center gap-1 uppercase tracking-wider z-10 shadow-lg">
+            <span className="text-xs">⭐</span> FEATURED
           </div>
         )}
 
-        <div className="absolute bottom-4 left-4 bg-white px-4 py-2 rounded-lg shadow-lg z-10">
-          <span className="text-sm font-bold text-slate-900">
-            {property.price.toLocaleString()} birr
+        <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg z-10 border border-white/20">
+          <span className="text-sm font-bold text-blue-700 uppercase tracking-tighter">
+            {new Intl.NumberFormat("en-ET", {
+              style: "currency",
+              currency: "ETB",
+              maximumFractionDigits: 0,
+            }).format(property.price)}
           </span>
-          <span className="text-gray-500 font-medium text-sm"> / mo</span>
+          <span className="text-gray-500 font-medium text-xs"> /{property.priceType}</span>
         </div>
       </div>
 
@@ -80,31 +74,37 @@ export default function PropertyCard({ property }: { property: Property }) {
         </div>
 
         {/* Footer Actions */}
-        <div className="mt-auto flex justify-between items-center">
-          <span className="text-slate-700 font-bold text-sm tracking-wide">
-            {property.status}
+        <div className="mt-auto flex justify-between items-center pt-4">
+          <span className="bg-blue-50 text-blue-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide border border-blue-100">
+            {property.type}
           </span>
           <div className="flex gap-1.5">
             {/* View Detail Button */}
-            <button
+            <Link
+              href={`/estates/${property.id}`}
               title="View Detail"
-              className="p-2 cursor-pointer hover:bg-blue-50 rounded-lg text-slate-400 hover:text-blue-600 transition-all duration-200 border border-transparent hover:border-blue-100"
+              className="p-2 cursor-pointer bg-white hover:bg-blue-600 rounded-lg text-blue-600 hover:text-white transition-all duration-200 border border-blue-100 hover:border-blue-600 shadow-sm"
             >
               <ExternalLink size={18} />
-            </button>
+            </Link>
 
             {/* Virtual Touring Button */}
-            <button
-              title="Virtual Touring"
-              className="p-2 cursor-pointer hover:bg-purple-50 rounded-lg text-slate-400 hover:text-purple-600 transition-all duration-200 border border-transparent hover:border-purple-100"
-            >
-              <Rotate3d size={18} />
-            </button>
+            {property.virtualTourUrl && (
+              <a
+                href={property.virtualTourUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Virtual Touring"
+                className="p-2 cursor-pointer bg-white hover:bg-purple-600 rounded-lg text-purple-600 hover:text-white transition-all duration-200 border border-purple-100 hover:border-purple-600 shadow-sm"
+              >
+                <Rotate3d size={18} />
+              </a>
+            )}
 
             {/* Favorite Button */}
             <button
               title="Add to Favorite"
-              className="p-2 cursor-pointer bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-500 rounded-lg transition-all duration-200 border border-slate-100 hover:border-red-100"
+              className="p-2 cursor-pointer bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-500 rounded-lg transition-all duration-200 border border-slate-100 hover:border-red-100 shadow-sm"
             >
               <Heart size={18} />
             </button>

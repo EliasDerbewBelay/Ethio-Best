@@ -5,11 +5,23 @@ export interface Property {
   beds: number;
   baths: number;
   sqft: number;
-  price: number; // Now in ETB
+  price: number; // In ETB
   priceType: "mo" | "yr" | "day";
   type: "For Rent" | "For Sale" | "For Lease";
   featured: boolean;
-  image: string;
+  image: string; // Featured image
+  images: string[]; // Gallery images
+  description: string;
+  amenities: string[];
+  virtualTourUrl?: string; // Optional virtual tour link
+  yearBuilt: number;
+  parking: number;
+  agent: {
+    name: string;
+    phone: string;
+    email: string;
+    image: string;
+  };
 }
 
 export type ViewMode = "grid" | "list";

@@ -8,6 +8,23 @@ const convertToBirr = (usdPrice: number): number => {
   return usdPrice * USD_TO_ETB;
 };
 
+const DEFAULT_AGENT = {
+  name: "Ethio Best Agent",
+  phone: "+251 911 123 456",
+  email: "info@ethiobest.com",
+  image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop",
+};
+
+const COMMON_AMENITIES = [
+  "High-speed WiFi",
+  "Backup Generator",
+  "24/7 Security",
+  "Modern Kitchen",
+  "Built-in Wardrobes",
+  "City View",
+  "Water Tank",
+];
+
 export const PROPERTIES: Property[] = [
   {
     id: 1,
@@ -20,8 +37,22 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+    ],
+    description: "Experience luxury living in the heart of Bole. This stunning equestrian-style family home offers spacious living areas, a modern kitchen, and top-tier security. Perfect for families looking for comfort and style in one of Addis Ababa's most prestigious neighborhoods.",
+    amenities: [...COMMON_AMENITIES, "Garden", "Parking Space", "Balcony"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg", // Example virtual tour
+    yearBuilt: 2022,
+    parking: 2,
+    agent: {
+      ...DEFAULT_AGENT,
+      name: "Solomon Tekle",
+    },
   },
   {
     id: 2,
@@ -34,8 +65,21 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+    ],
+    description: "Perched on the Northridge of Kazanchis, this modern residence offers breathtaking panoramic views of the city. With high-end finishes and an open-concept design, it's ideal for urban professionals.",
+    amenities: [...COMMON_AMENITIES, "Elevator", "Gym Access", "Smart Home System"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2023,
+    parking: 1,
+    agent: {
+      ...DEFAULT_AGENT,
+      name: "Hiwot Abreham",
+    },
   },
   {
     id: 3,
@@ -48,8 +92,17 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&h=600&fit=crop",
+    ],
+    description: "A classic yet modern home located in the vibrant Mexico area. This property combines elegance with functionality, featuring a spacious backyard and a modern interior.",
+    amenities: [...COMMON_AMENITIES, "Spacious Backyard", "Laundry Room"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2021,
+    parking: 2,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 4,
@@ -62,8 +115,17 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+    ],
+    description: "Luxury meets comfort in this beautiful villa located in the peaceful Rage Park of Gerji. Featuring exquisite design and premium materials.",
+    amenities: [...COMMON_AMENITIES, "Swimming Pool", "Private Gate"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2022,
+    parking: 3,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 5,
@@ -76,8 +138,16 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+    ],
+    description: "An elegant villa offering a sophisticated lifestyle. Grand entrance, high ceilings, and premium fixtures throughout.",
+    amenities: [...COMMON_AMENITIES, "High Ceilings", "Maid service"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2020,
+    parking: 2,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 6,
@@ -90,8 +160,16 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+    ],
+    description: "A masterpiece of architecture in Bole. This villa offers unmatched luxury and privacy, with every detail carefully crafted.",
+    amenities: [...COMMON_AMENITIES, "Steam Room", "Sauna"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2023,
+    parking: 4,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 7,
@@ -104,8 +182,13 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1448630360428-65456885c650?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&h=600&fit=crop",
+    images: ["https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&h=600&fit=crop"],
+    description: "Prime commercial space in the busy Megenagna area. Excellent visibility and high foot traffic make this an ideal spot for your business.",
+    amenities: ["Large Display Windows", "Prime Location", "Easy Access"],
+    yearBuilt: 2018,
+    parking: 0,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 8,
@@ -118,8 +201,14 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
+    images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop"],
+    description: "A prestigious villa in the Old Airport area. Quiet, secure, and beautiful, this property is perfect for diplomats and expatriates.",
+    amenities: [...COMMON_AMENITIES, "Solar Power", "Staff Quarters"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2019,
+    parking: 3,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 9,
@@ -132,8 +221,14 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+    images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop"],
+    description: "Sleek and modern apartment in the growing Summit neighborhood. Features floor-to-ceiling windows and premium finishes.",
+    amenities: [...COMMON_AMENITIES, "Sky Lounge Access"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2024,
+    parking: 1,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 10,
@@ -146,8 +241,14 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+    images: ["https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop"],
+    description: "Spacious family home in Ayat with a lush garden. Perfect for hosting gatherings and enjoying outdoor life within the city.",
+    amenities: [...COMMON_AMENITIES, "Large Garden", "BBQ Area"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2021,
+    parking: 2,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 11,
@@ -160,8 +261,14 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop",
+    images: ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop"],
+    description: "Exclusive penthouse living with unmatched views and luxury. Features a private terrace and high-end smart home technology.",
+    amenities: [...COMMON_AMENITIES, "Private Terrace", "Smart Home"],
+    virtualTourUrl: "https://my.matterport.com/show/?m=rnz9Y2H6Nrg",
+    yearBuilt: 2023,
+    parking: 2,
+    agent: DEFAULT_AGENT,
   },
   {
     id: 12,
@@ -174,8 +281,13 @@ export const PROPERTIES: Property[] = [
     priceType: "mo",
     type: "For Rent",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+    images: ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"],
+    description: "A compact and cozy studio apartment in Sarbet. Perfect for singles or as a city pied-à-terre.",
+    amenities: ["Efficient Design", "Prime Location"],
+    yearBuilt: 2017,
+    parking: 1,
+    agent: DEFAULT_AGENT,
   },
 ];
 

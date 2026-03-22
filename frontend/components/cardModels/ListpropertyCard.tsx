@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import type { Property, ViewMode } from "@/types/property";
 import { FORMAT_OPTIONS } from "@/constants/property";
+import Link from "next/link";
 
 interface ListPropertyCardProps {
   property: Property;
@@ -73,12 +74,6 @@ const ListPropertyCard: React.FC<ListPropertyCardProps> = ({
                     {property.location}
                   </p>
                 </div>
-                <div className="text-right sm:hidden">
-                  <p className="text-2xl font-bold text-gray-900">
-                    {formatPrice(property.price)}
-                  </p>
-                  <p className="text-gray-500 text-xs">/{property.priceType}</p>
-                </div>
               </div>
 
               {/* Features */}
@@ -98,28 +93,34 @@ const ListPropertyCard: React.FC<ListPropertyCardProps> = ({
               </div>
             </div>
 
-            {/* Price Section */}
+            {/* Price Section - Desktop */}
             <div className="hidden sm:block text-right ml-6">
               <p className="text-2xl font-bold text-gray-900">
                 {formatPrice(property.price)}
               </p>
               <p className="text-gray-500 text-xs">/{property.priceType}</p>
-              <button className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
-                View Details
-              </button>
+              <Link href={`/estates/${property.id}`}>
+                <button className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
+                  View Details
+                </button>
+              </Link>
             </div>
 
             {/* Mobile button */}
-            <button className="sm:hidden mt-4 w-full px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
-              View Details
-            </button>
+            <Link href={`/estates/${property.id}`} className="sm:hidden w-full">
+              <button className="mt-4 w-full px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>
     );
   }
 
-  // Grid View
+  /* -------------------------------------------------------------------------- */
+  /* GRID VIEW                                                                  */
+  /* -------------------------------------------------------------------------- */
   return (
     <div className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 card-hover">
       {/* Image Container */}
@@ -180,9 +181,12 @@ const ListPropertyCard: React.FC<ListPropertyCardProps> = ({
           </p>
         </div>
 
-        <button className="mt-4 w-full py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300">
-          View Details
-        </button>
+        {/* Updated Grid View Link */}
+        <Link href={`/estates/${property.id}`}>
+          <button className="mt-4 w-full py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
