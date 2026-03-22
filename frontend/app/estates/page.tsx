@@ -54,7 +54,7 @@ const Page: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
             <div>
               <h1 className="text-xl md:text-3xl font-bold text-gray-900 leading-tight">
-                Ethiopian Homes For Sale
+                Ethio Best Real Estate
               </h1>
               <p className="text-xs md:text-sm text-gray-600 mt-0.5">
                 Homes / For Rent in Addis Ababa
