@@ -1,3 +1,5 @@
+'use client'
+
 import { TourData } from "@/types/tour";
 
 /**
@@ -58,7 +60,7 @@ export const MOCK_TOUR_DATA: TourData = {
     {
       id: "parking",
       name: "Secure Parking Lot",
-      image: "https://images.unsplash.com/photo-1590674899484-13da0d1b58f5?q=80&w=2070&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1740479229028-c899cd33e34a?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       hotspots: [
         { id: "hs-9", position: [0, 0, 10], label: "Enter House (Living Room)", targetSceneId: "living-room" },
       ],
