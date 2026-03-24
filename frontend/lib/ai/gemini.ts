@@ -3,15 +3,13 @@ import { PROPERTIES } from "@/constants/property";
 
 /**
  * Gemini AI Real Estate Assistant
- * 
- * We use the Google Generative AI SDK with gemini-1.5-flash for 
+ *
+ * We use the Google Generative AI SDK with gemini-1.5-flash for
  * fast and accurate property assistance.
  */
 
 // Initialize the Gemini client
-// Note: We are using process.env.OPENAI_API_KEY as requested by the user 
-// because their Gemini key is stored in that variable.
-const genAI = new GoogleGenerativeAI(process.env.OPENAI_API_KEY || "");
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY || "");
 
 const SYSTEM_PROMPT = `
 You are the official AI assistant for "Ethio Best" REAL ESTATE, a premier property platform in Addis Ababa, Ethiopia.
@@ -19,7 +17,7 @@ Your goal is to help users find their dream homes, apartments, or commercial spa
 
 ### OUR LISTINGS:
 Here are the current properties available in our system:
-${PROPERTIES.map(p => `- ${p.title} in ${p.location}. ${p.beds} beds, ${p.baths} baths, ${p.sqft} sqft. Price: ${p.price} ETB/${p.priceType}. Description: ${p.description}`).join("\n")}
+${PROPERTIES.map((p) => `- ${p.title} in ${p.location}. ${p.beds} beds, ${p.baths} baths, ${p.sqft} sqft. Price: ${p.price} ETB/${p.priceType}. Description: ${p.description}`).join("\n")}
 
 ### YOUR BEHAVIOR:
 1. Professional & Welcoming: Always be polite and helpful.
@@ -35,21 +33,23 @@ ${PROPERTIES.map(p => `- ${p.title} in ${p.location}. ${p.beds} beds, ${p.baths}
 - Mention prices in ETB.
 `;
 
-export async function getGeminiResponse(messages: { role: string; content: string }[]) {
+export async function getGeminiResponse(
+  messages: { role: string; content: string }[],
+) {
   try {
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-pro",
-      systemInstruction: SYSTEM_PROMPT 
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: SYSTEM_PROMPT,
     });
 
     // Gemini expects 'user' and 'model' roles. We need to map 'assistant' to 'model'.
-    const history = messages.slice(0, -1).map(m => ({
+    const history = messages.slice(0, -1).map((m) => ({
       role: m.role === "assistant" ? "model" : "user",
-      parts: [{ text: m.content }]
+      parts: [{ text: m.content }],
     }));
 
     const lastMessage = messages[messages.length - 1];
-    
+
     // Start chat with history
     const chat = model.startChat({
       history: history,

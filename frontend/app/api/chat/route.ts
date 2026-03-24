@@ -12,7 +12,7 @@ export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
 
-    if (!process.env.OPENAI_API_KEY) {
+    if (!process.env.GOOGLE_GEMINI_API_KEY) {
       console.error("CRITICAL: Gemini API Key is missing (check OPENAI_API_KEY env)");
       return NextResponse.json(
         { error: "Gemini API Key is missing. Please check your .env.local file." },
