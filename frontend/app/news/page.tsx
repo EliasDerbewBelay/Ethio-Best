@@ -52,6 +52,22 @@ const POSTS = [
 
 const NewsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredPosts = POSTS.filter((post) => {
+    const matchesCategory =
+      activeCategory === "All" || post.category === activeCategory;
+    const query = searchQuery.trim().toLowerCase();
+    const matchesSearch =
+      !query ||
+      post.title.toLowerCase().includes(query) ||
+      post.excerpt.toLowerCase().includes(query) ||
+      post.category.toLowerCase().includes(query);
+    return matchesCategory && matchesSearch;
+  });
+
+  const featuredPosts = filteredPosts.filter((post) => post.featured);
+  const regularPosts = filteredPosts.filter((post) => !post.featured);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -64,6 +80,8 @@ const NewsPage = () => {
         <div className="relative max-w-xl mx-auto">
           <input
             type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search articles..."
             className="w-full pl-10 sm:pl-12 pr-4 py-3 rounded-xl sm:rounded-2xl bg-white border border-purple-100 text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600"
           />
@@ -88,7 +106,15 @@ const NewsPage = () => {
       </div>
 
       <main className="section-container page-content">
-        {POSTS.filter((p) => p.featured).map((post) => (
+        {filteredPosts.length === 0 && (
+          <div className="text-center py-12 bg-white rounded-xl border border-gray-100">
+            <p className="text-body-sm text-gray-500">
+              No articles match your search or category.
+            </p>
+          </div>
+        )}
+
+        {featuredPosts.map((post) => (
           <div key={post.id} className="group grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-lg mb-8 sm:mb-12 border border-gray-100">
             <div className="relative img-card-lg lg:min-h-[280px] overflow-hidden">
               <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:1024px) 100vw, 50vw" />
@@ -109,7 +135,7 @@ const NewsPage = () => {
         ))}
 
         <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {POSTS.filter((p) => !p.featured).map((post) => (
+          {regularPosts.map((post) => (
             <article key={post.id} className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all flex flex-col group">
               <div className="relative img-card-sm overflow-hidden">
                 <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:480px) 100vw, 33vw" />

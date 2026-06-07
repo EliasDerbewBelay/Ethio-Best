@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ListPropertyCard from "@/components/cardModels/ListpropertyCard";
-import { PROPERTIES, FILTER_OPTIONS, VIEW_MODES, PAGINATION } from "@/constants/property";
+import { PROPERTIES, FILTER_OPTIONS, VIEW_MODES } from "@/constants/property";
 import type { ViewMode } from "@/types/property";
 
 const Page: React.FC = () => {
@@ -19,7 +19,10 @@ const Page: React.FC = () => {
   // Filter properties logic (Unchanged)
   const filteredProperties = PROPERTIES.filter((property) => {
     if (selectedPropertyType !== "All Properties") {
-      if (!property.title.toLowerCase().includes(selectedPropertyType.toLowerCase())) return false;
+      const type = selectedPropertyType.toLowerCase();
+      const title = property.title.toLowerCase();
+      const propertyType = property.type.toLowerCase();
+      if (!title.includes(type) && !propertyType.includes(type)) return false;
     }
     if (selectedLocation !== "All Locations") {
       if (!property.location.toLowerCase().includes(selectedLocation.toLowerCase())) return false;
@@ -92,7 +95,7 @@ const Page: React.FC = () => {
                         setShowPropertyTypeFilter(false);
                       }}
                       className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 ${
-                        selectedPropertyType === type ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        selectedPropertyType === type ? "bg-purple-50 text-purple-700 font-semibold" : "text-gray-700"
                       }`}
                     >
                       {type}
@@ -123,7 +126,7 @@ const Page: React.FC = () => {
                         setShowLocationFilter(false);
                       }}
                       className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 ${
-                        selectedLocation === location ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        selectedLocation === location ? "bg-purple-50 text-purple-700 font-semibold" : "text-gray-700"
                       }`}
                     >
                       {location}
@@ -189,7 +192,7 @@ const Page: React.FC = () => {
             <div className="hidden md:flex gap-1 bg-gray-100 rounded-lg p-1 flex-shrink-0">
               <button
                 onClick={() => setViewMode(VIEW_MODES.GRID)}
-                className={`p-1.5 rounded-md transition ${viewMode === VIEW_MODES.GRID ? "bg-white text-blue-600 shadow-sm" : "text-gray-500"}`}
+                className={`p-1.5 rounded-md transition ${viewMode === VIEW_MODES.GRID ? "bg-white text-purple-700 shadow-sm" : "text-gray-500"}`}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -197,7 +200,7 @@ const Page: React.FC = () => {
               </button>
               <button
                 onClick={() => setViewMode(VIEW_MODES.LIST)}
-                className={`p-1.5 rounded-md transition ${viewMode === VIEW_MODES.LIST ? "bg-white text-blue-600 shadow-sm" : "text-gray-500"}`}
+                className={`p-1.5 rounded-md transition ${viewMode === VIEW_MODES.LIST ? "bg-white text-purple-700 shadow-sm" : "text-gray-500"}`}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -215,7 +218,7 @@ const Page: React.FC = () => {
             <p className="text-body-sm text-gray-400">No properties found matching your criteria.</p>
             <button 
               onClick={() => setSelectedPropertyType("All Properties")}
-              className="mt-4 text-blue-600 font-semibold hover:underline"
+              className="mt-4 text-purple-700 font-semibold hover:underline"
             >
               Reset Filters
             </button>
@@ -233,18 +236,13 @@ const Page: React.FC = () => {
               ))}
             </div>
 
-            {/* Pagination - Full Width Mobile */}
-            <div className="mt-12 flex flex-col items-center gap-4">
+            <div className="mt-12 flex flex-col items-center gap-2">
               <p className="text-gray-500 text-xs md:text-sm">
-                Showing {Math.min(PAGINATION.ITEMS_PER_PAGE, sortedProperties.length)} of {sortedProperties.length} properties
+                Showing all {sortedProperties.length} properties
               </p>
-              
-              <div className="flex items-center gap-1 md:gap-2">
-                <button className="px-3 py-1.5 text-xs md:text-sm text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">Prev</button>
-                <button className="px-3.5 py-1.5 text-xs md:text-sm text-white bg-blue-600 rounded-lg font-bold">1</button>
-                <button className="px-3.5 py-1.5 text-xs md:text-sm text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">2</button>
-                <button className="px-3 py-1.5 text-xs md:text-sm text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">Next</button>
-              </div>
+              <p className="text-caption text-purple-600/80">
+                Every listing includes a 360° virtual tour
+              </p>
             </div>
           </>
         )}

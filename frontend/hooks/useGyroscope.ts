@@ -4,15 +4,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { PannellumViewer } from "@/lib/tourTypes";
 
 export function useGyroscopeSupported(): boolean {
-  const [supported, setSupported] = useState(false);
-
-  useEffect(() => {
-    const hasOrientation =
-      typeof window !== "undefined" &&
-      ("DeviceOrientationEvent" in window ||
-        "ondeviceorientation" in window);
-    setSupported(hasOrientation);
-  }, []);
+  const [supported] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return (
+      "DeviceOrientationEvent" in window || "ondeviceorientation" in window
+    );
+  });
 
   return supported;
 }

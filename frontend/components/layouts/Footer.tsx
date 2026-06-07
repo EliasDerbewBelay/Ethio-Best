@@ -2,27 +2,86 @@ import React from "react";
 import Link from "next/link";
 import { BRAND_NAME, BRAND_EMAIL } from "@/constants/brand";
 
+function FooterNavSection({
+  title,
+  items,
+}: {
+  title: string;
+  items: { name: string; href: string }[];
+}) {
+  return (
+    <>
+      <details className="md:hidden group border-b border-gray-800 py-1">
+        <summary className="flex items-center justify-between py-3 text-white font-semibold text-base cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+          {title}
+          <svg
+            className="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </summary>
+        <ul className="pb-3 space-y-2">
+          {items.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                className="block py-1.5 text-gray-400 hover:text-amber-500 transition-colors"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </details>
+
+      <div className="hidden md:block">
+        <h3 className="text-white font-semibold text-lg mb-4">{title}</h3>
+        <ul className="space-y-2">
+          {items.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const navigation = {
     company: [
       { name: "About Us", href: "/about" },
-      { name: "Our Team", href: "/team" },
-      { name: "Careers", href: "/careers" },
       { name: "Contact Us", href: "/contact" },
+      { name: "Our Estates", href: "/estates" },
+      { name: "Latest News", href: "/news" },
     ],
     properties: [
-      { name: "Luxury Homes", href: "/properties/luxury" },
-      { name: "Beachfront", href: "/properties/beachfront" },
-      { name: "Mountain View", href: "/properties/mountain" },
-      { name: "Urban Living", href: "/properties/urban" },
+      { name: "All Listings", href: "/estates" },
+      { name: "Featured Homes", href: "/estates" },
+      { name: "Virtual Tours", href: "/estates" },
+      { name: "For Rent", href: "/estates" },
     ],
     resources: [
       { name: "Blog & News", href: "/news" },
-      { name: "Buying Guide", href: "/guides/buying" },
-      { name: "Selling Guide", href: "/guides/selling" },
-      { name: "FAQs", href: "/faqs" },
+      { name: "Virtual Tour Guide", href: "/#virtual-tour" },
+      { name: "Contact Agent", href: "/contact" },
+      { name: "Home", href: "/" },
     ],
   };
 
@@ -73,65 +132,6 @@ const Footer = () => {
       ),
     },
   ];
-
-  const NavSection = ({
-    title,
-    items,
-  }: {
-    title: string;
-    items: { name: string; href: string }[];
-  }) => (
-    <>
-      {/* Mobile accordion */}
-      <details className="md:hidden group border-b border-gray-800 py-1">
-        <summary className="flex items-center justify-between py-3 text-white font-semibold text-base cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-          {title}
-          <svg
-            className="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </summary>
-        <ul className="pb-3 space-y-2">
-          {items.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="block py-1.5 text-gray-400 hover:text-amber-500 transition-colors"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </details>
-
-      {/* Desktop column */}
-      <div className="hidden md:block">
-        <h3 className="text-white font-semibold text-lg mb-4">{title}</h3>
-        <ul className="space-y-2">
-          {items.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
-  );
 
   return (
     <footer className="bg-gray-900 text-gray-300 safe-bottom pb-[calc(var(--bottom-nav-height)+var(--safe-bottom))] xl:pb-0">
@@ -221,9 +221,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <NavSection title="Company" items={navigation.company} />
-          <NavSection title="Properties" items={navigation.properties} />
-          <NavSection title="Resources" items={navigation.resources} />
+          <FooterNavSection title="Company" items={navigation.company} />
+          <FooterNavSection title="Properties" items={navigation.properties} />
+          <FooterNavSection title="Resources" items={navigation.resources} />
         </div>
 
         {/* Newsletter */}

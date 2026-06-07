@@ -1,14 +1,8 @@
 import Image from "next/image";
-import {
-  Rotate3d,
-  Heart,
-  BedDouble,
-  Bath,
-  Square,
-  ExternalLink,
-} from "lucide-react";
+import { Heart, BedDouble, Bath, Square, ExternalLink } from "lucide-react";
 import { Property } from "@/types/property";
 import Link from "next/link";
+import PropertyTourIconButton from "@/components/property/PropertyTourIconButton";
 
 export default function PropertyCard({ property }: { property: Property }) {
   return (
@@ -25,13 +19,6 @@ export default function PropertyCard({ property }: { property: Property }) {
         {property.featured && (
           <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-purple-700 text-white text-caption font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md uppercase tracking-wider z-10 shadow">
             Featured
-          </div>
-        )}
-
-        {property.virtualTourUrl && (
-          <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 flex items-center gap-1 bg-purple-950/80 backdrop-blur-sm text-yellow-400 text-[9px] sm:text-caption font-bold px-2 py-0.5 sm:py-1 rounded-md uppercase tracking-wider z-10 border border-yellow-400/30">
-            <Rotate3d size={12} />
-            360° Tour
           </div>
         )}
 
@@ -90,16 +77,12 @@ export default function PropertyCard({ property }: { property: Property }) {
             >
               <ExternalLink size={16} className="sm:w-[18px] sm:h-[18px]" />
             </Link>
-            {property.virtualTourUrl && (
-              <Link
-                href={`/estates/${property.id}#virtual-tour`}
-                title="360° Virtual Tour"
-                className="p-1.5 sm:p-2 bg-white hover:bg-yellow-400 rounded-lg text-purple-600 hover:text-purple-950 transition-all border border-purple-100"
-              >
-                <Rotate3d size={16} className="sm:w-[18px] sm:h-[18px]" />
-              </Link>
-            )}
+            <PropertyTourIconButton
+              property={property}
+              className="p-1.5 sm:p-2 bg-white hover:bg-yellow-400 rounded-lg text-purple-600 hover:text-purple-950 transition-all border border-purple-100"
+            />
             <button
+              type="button"
               title="Add to Favorite"
               className="p-1.5 sm:p-2 bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-500 rounded-lg transition-all border border-slate-100"
             >
