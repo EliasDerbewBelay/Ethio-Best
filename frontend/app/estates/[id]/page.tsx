@@ -44,25 +44,29 @@ export default async function PropertyDetailPage({ params }: PageProps) {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Navigation Header */}
-      <div className="bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="bg-white border-b border-gray-100 sticky-below-header shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-14 sm:min-h-16 flex items-center justify-between gap-3">
           <Link 
             href="/estates" 
-            className="flex items-center gap-2 text-gray-600 hover:text-blue-600 font-medium transition-colors"
+            className="flex items-center gap-1.5 sm:gap-2 text-gray-600 hover:text-purple-700 font-medium transition-colors text-sm sm:text-base shrink-0"
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Listings</span>
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="hidden xs:inline">Back to Listings</span>
+            <span className="xs:hidden">Back</span>
           </Link>
-          <div className="hidden sm:flex items-center gap-4">
-             <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+             <span className="bg-purple-700 text-white px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-wider shrink-0">
                {property.featured ? "FEATURED" : property.type.toUpperCase()}
              </span>
-             <span className="text-2xl font-bold text-blue-600">{formatPrice(property.price)}<span className="text-sm text-gray-400 font-normal">/{property.priceType}</span></span>
+             <span className="text-base sm:text-xl md:text-2xl font-bold text-purple-700 truncate">
+               {formatPrice(property.price)}
+               <span className="text-xs sm:text-sm text-gray-400 font-normal">/{property.priceType}</span>
+             </span>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8">
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
@@ -70,10 +74,10 @@ export default async function PropertyDetailPage({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Title & Location Header */}
             <div>
-              <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
                 {property.title}
               </h1>
-              <div className="flex items-center gap-2 text-gray-500 text-lg">
+              <div className="flex items-start sm:items-center gap-2 text-gray-500 text-sm sm:text-base md:text-lg">
                 <MapPin className="w-5 h-5 text-blue-500" />
                 <span>{property.location}</span>
               </div>
@@ -83,7 +87,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
             <PropertyGallery images={property.images} />
 
             {/* Vital Stats Card */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-white rounded-3xl shadow-sm border border-gray-100">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100">
               <div className="flex flex-col items-center gap-2 p-3 rounded-2xl bg-blue-50/50">
                 <Bed className="w-6 h-6 text-blue-600" />
                 <span className="text-gray-900 font-bold">{property.beds}</span>
@@ -107,26 +111,26 @@ export default async function PropertyDetailPage({ params }: PageProps) {
             </div>
 
             {/* Description Section */}
-            <section className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-50">
+            <section className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-50">
                 Description
               </h2>
-              <p className="text-gray-600 leading-relaxed text-lg whitespace-pre-line">
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg whitespace-pre-line">
                 {property.description}
               </p>
             </section>
 
             {/* Amenities Section */}
-            <section className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-50">
+            <section className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-50">
                 Amenities & Features
               </h2>
               <AmenitiesList amenities={property.amenities} />
             </section>
 
             {/* Key Details Section */}
-            <section className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-50">
+            <section className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-50">
                 Property Details
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -173,7 +177,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
             </div>
 
             {/* Agent Contact Card */}
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6 sticky top-24">
+            <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 space-y-6 lg:sticky lg:top-[calc(var(--header-height)+1rem)]">
                <h3 className="text-xl font-bold text-gray-900">
                   Listed by Agent
                </h3>

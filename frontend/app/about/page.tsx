@@ -32,16 +32,16 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[60vh] flex items-center justify-center bg-purple-900 overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[55vh] md:h-[60vh] flex items-center justify-center bg-purple-900 overflow-hidden py-12 sm:py-0">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-yellow-500 via-transparent to-transparent" />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-            Building Dreams in the <br />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
+            Building Dreams in the{" "}
             <span className="text-yellow-400">Heart of Ethiopia</span>
           </h1>
-          <p className="text-purple-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-purple-100 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-2">
             Ella Man Real Estate is a premier property solution provider
             dedicated to transforming the landscape of urban living in Addis
             Ababa and beyond.
@@ -52,7 +52,7 @@ export default function AboutPage() {
       {/* --- OUR STORY SECTION --- */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-yellow-400/20">
+          <div className="relative h-[260px] sm:h-[360px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-yellow-400/20">
             <Image
               src={home}
               alt="Addis Ababa Real Estate"
@@ -147,11 +147,11 @@ export default function AboutPage() {
 
       {/* --- CALL TO ACTION --- */}
       <section className="mb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto bg-gradient-to-r from-purple-900 to-purple-800 rounded-[2rem] p-8 md:p-16 text-center relative overflow-hidden">
+        <div className="max-w-7xl mx-auto bg-gradient-to-r from-purple-900 to-purple-800 rounded-2xl sm:rounded-[2rem] p-6 sm:p-10 md:p-16 text-center relative overflow-hidden">
           {/* Decorative Circle */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-yellow-400 opacity-10 rounded-full" />
 
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
             Ready to Find Your{" "}
             <span className="text-yellow-400">Perfect Home?</span>
           </h2>

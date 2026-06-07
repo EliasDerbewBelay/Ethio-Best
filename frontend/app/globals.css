@@ -1,35 +1,178 @@
 @import "tailwindcss";
 
-/* Hide Google Translate Banner */
-.goog-te-banner-frame {
-  display: none !important;
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
+/* ── Mobile-first design tokens ── */
+:root {
+  --header-height: 3.75rem;
+  --bottom-nav-height: 3.75rem;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 4.25rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  :root {
+    --bottom-nav-height: 0px;
+  }
+}
+
+/* Reserve space above mobile bottom nav */
+.mobile-main-pad {
+  padding-bottom: calc(var(--bottom-nav-height) + var(--safe-bottom));
+}
+
+@media (min-width: 80rem) {
+  .mobile-main-pad {
+    padding-bottom: 0;
+  }
+}
+
+/* ── Base resets ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   top: 0 !important;
+  overflow-x: hidden;
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Hide Google Translate Tooltip */
-.goog-tooltip {
+/* Prevent layout shift from Google Translate */
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-te-balloon,
+.skiptranslate {
   display: none !important;
 }
+
+.goog-tooltip,
 .goog-tooltip:hover {
   display: none !important;
 }
+
 .goog-text-highlight {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* Hide Google Translate "Powered by" branding */
 .goog-logo-link {
   display: none !important;
 }
+
 .goog-te-gadget {
   color: transparent !important;
   font-size: 0 !important;
 }
+
 .goog-te-gadget .goog-te-combo {
   display: none !important;
+}
+
+/* ── Utility classes ── */
+.scrollbar-hide,
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.safe-bottom {
+  padding-bottom: max(1rem, var(--safe-bottom));
+}
+
+.safe-x {
+  padding-left: max(1rem, var(--safe-left));
+  padding-right: max(1rem, var(--safe-right));
+}
+
+.touch-target {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* Sticky offset below site header */
+.sticky-below-header {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 20;
+}
+
+/* Card hover — disable lift on touch devices */
+@media (hover: hover) {
+  .card-hover:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Body scroll lock for mobile menus */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Compact chat widget — scales gently across breakpoints */
+.chat-panel {
+  width: min(calc(100vw - 1.5rem), 18.5rem);
+  height: min(
+    24rem,
+    calc(
+      100dvh - var(--header-height) - var(--bottom-nav-height) - 5.5rem -
+        var(--safe-bottom)
+    )
+  );
+  max-height: min(24rem, 62dvh);
+}
+
+@media (min-width: 30rem) {
+  .chat-panel {
+    width: 19.5rem;
+    height: min(25rem, calc(100dvh - var(--header-height) - 6rem));
+    max-height: min(25rem, 70dvh);
+  }
+}
+
+@media (min-width: 40rem) {
+  .chat-panel {
+    width: 20.5rem;
+    height: min(26rem, calc(100dvh - var(--header-height) - 5.5rem));
+    max-height: min(26rem, 72dvh);
+  }
+}
+
+@media (min-width: 64rem) {
+  .chat-panel {
+    width: 21rem;
+    height: 27rem;
+    max-height: 27rem;
+  }
 }

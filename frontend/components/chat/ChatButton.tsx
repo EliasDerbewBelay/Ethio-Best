@@ -1,15 +1,9 @@
 "use client";
 
-import { MessageSquare, X } from "lucide-react";
+import Image from "next/image";
+import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-/**
- * Floating Chat Button
- * 
- * Renders in the bottom-right corner.
- * Shows a message bubble when closed and an X when open.
- * Uses Framer Motion for a spring-y animation.
- */
+import BrandLogo from "@/public/Logos/ella-man-logo.png";
 
 interface ChatButtonProps {
   isOpen: boolean;
@@ -18,25 +12,62 @@ interface ChatButtonProps {
 
 export default function ChatButton({ isOpen, onClick }: ChatButtonProps) {
   return (
-    <button
+    <motion.button
       onClick={onClick}
-      className="fixed bottom-6 right-6 z-[9999] w-14 h-14 bg-purple-600 hover:bg-purple-700 text-white rounded-full flex items-center justify-center shadow-2xl shadow-purple-600/30 transition-all hover:scale-110 active:scale-90 border-2 border-white/20"
+      aria-label={isOpen ? "Close assistant" : "Open assistant"}
+      aria-expanded={isOpen}
+      whileTap={{ scale: 0.94 }}
+      className={`fixed z-[9999] flex items-center justify-center rounded-full bg-gradient-to-br from-purple-900 to-purple-800 text-white shadow-lg shadow-purple-900/25 border-2 border-yellow-400/25 transition-shadow hover:shadow-xl ${
+        isOpen ? "h-11 w-11" : "h-12 w-12 sm:h-auto sm:w-auto sm:py-1 sm:pl-1 sm:pr-3 sm:gap-1.5"
+      }`}
+      style={{
+        bottom:
+          "max(calc(var(--bottom-nav-height) + 0.75rem), calc(0.75rem + var(--safe-bottom)))",
+        right: "max(0.75rem, var(--safe-right))",
+      }}
     >
-      <AnimatePresence mode="wait">
-        <motion.div
-           key={isOpen ? "close" : "open"}
-           initial={{ opacity: 0, rotate: -90 }}
-           animate={{ opacity: 1, rotate: 0 }}
-           exit={{ opacity: 0, rotate: 90 }}
-           transition={{ duration: 0.2 }}
-        >
-          {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
-        </motion.div>
-      </AnimatePresence>
-      
+      <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white overflow-hidden shrink-0">
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div
+              key="close"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.12 }}
+              className="text-purple-900"
+            >
+              <X size={20} strokeWidth={2.5} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="logo"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.12 }}
+            >
+              <Image
+                src={BrandLogo}
+                alt="Ella Man Real Estate"
+                width={32}
+                height={32}
+                className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
       {!isOpen && (
-        <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full border-2 border-white animate-pulse" />
+        <span className="hidden sm:block text-xs font-semibold pr-0.5">
+          Help
+        </span>
       )}
-    </button>
+
+      {!isOpen && (
+        <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full bg-yellow-400 border-2 border-white" />
+      )}
+    </motion.button>
   );
 }

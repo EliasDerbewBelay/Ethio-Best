@@ -12,8 +12,8 @@ export default function HeroSecPptCard({
   alt,
 }: PropertyCardProps) {
   return (
-    <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white/70 backdrop-blur-md border border-white/20">
-      <div className="relative h-[220px] w-full">
+    <div className="relative w-full rounded-2xl overflow-hidden shadow-lg bg-white/70 backdrop-blur-md border border-white/20">
+      <div className="relative h-[180px] sm:h-[200px] md:h-[220px] w-full">
         <Image src={image} alt={alt} fill className="object-cover" priority />
       </div>
 

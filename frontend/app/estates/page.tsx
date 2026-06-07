@@ -48,29 +48,29 @@ const Page: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
+      {/* Page header */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
             <div>
-              <h1 className="text-xl md:text-3xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                 Ella Man Real Estate
               </h1>
-              <p className="text-xs md:text-sm text-gray-600 mt-0.5">
+              <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
                 Homes / For Rent in Addis Ababa
               </p>
             </div>
-            <div className="text-xs md:text-sm text-gray-500 font-medium">
+            <div className="text-xs sm:text-sm text-gray-500 font-medium">
               {filteredProperties.length} properties available
             </div>
           </div>
         </div>
       </div>
 
-      {/* Filters Bar - Horizontally scrollable on mobile */}
-      <div className="bg-white border-b border-gray-200 sticky top-[73px] md:top-[88px] z-20">
+      {/* Filters — sticky below site header, horizontally scrollable on mobile */}
+      <div className="bg-white border-b border-gray-200 sticky-below-header shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex items-center gap-3 overflow-x-auto pb-2 md:pb-0 scrollbar-hide no-scrollbar">
+          <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide snap-x-mandatory">
             {/* Property Type */}
             <div className="relative flex-shrink-0">
               <button
@@ -78,7 +78,7 @@ const Page: React.FC = () => {
                   setShowPropertyTypeFilter(!showPropertyTypeFilter);
                   setShowLocationFilter(false);
                 }}
-                className="whitespace-nowrap px-3 py-2 text-xs md:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center gap-1.5"
+                className="touch-target whitespace-nowrap px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center gap-1.5 snap-start shrink-0"
               >
                 Property Type <span className="text-[10px]">▼</span>
               </button>
@@ -109,7 +109,7 @@ const Page: React.FC = () => {
                   setShowLocationFilter(!showLocationFilter);
                   setShowPropertyTypeFilter(false);
                 }}
-                className="whitespace-nowrap px-3 py-2 text-xs md:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center gap-1.5"
+                className="touch-target whitespace-nowrap px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center gap-1.5 snap-start shrink-0"
               >
                 Location <span className="text-[10px]">▼</span>
               </button>
@@ -137,7 +137,7 @@ const Page: React.FC = () => {
             <select
               value={selectedPriceRange}
               onChange={(e) => setSelectedPriceRange(Number(e.target.value))}
-              className="flex-shrink-0 px-3 py-2 text-xs md:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 cursor-pointer outline-none"
+              className="flex-shrink-0 px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg border-0 focus:ring-2 focus:ring-purple-600 cursor-pointer outline-none snap-start min-h-[2.75rem]"
             >
               {FILTER_OPTIONS.priceRanges.map((range, index) => (
                 <option key={index} value={index}>{range.label}</option>
@@ -148,7 +148,7 @@ const Page: React.FC = () => {
             <select
               value={selectedBeds}
               onChange={(e) => setSelectedBeds(Number(e.target.value))}
-              className="flex-shrink-0 px-3 py-2 text-xs md:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 cursor-pointer outline-none"
+              className="flex-shrink-0 px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg border-0 focus:ring-2 focus:ring-purple-600 cursor-pointer outline-none snap-start min-h-[2.75rem]"
             >
               <option value={0}>Beds</option>
               {FILTER_OPTIONS.bedOptions.map((bed) => (
@@ -160,7 +160,7 @@ const Page: React.FC = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-              className="flex-shrink-0 px-3 py-2 text-xs md:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 cursor-pointer outline-none"
+              className="flex-shrink-0 px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 bg-gray-100 rounded-lg border-0 focus:ring-2 focus:ring-purple-600 cursor-pointer outline-none snap-start min-h-[2.75rem]"
             >
               {FILTER_OPTIONS.sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>Sort: {option.label}</option>
@@ -224,7 +224,7 @@ const Page: React.FC = () => {
           <>
             <div className={
                 viewMode === VIEW_MODES.GRID
-                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6"
+                  ? "grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6"
                   : "flex flex-col gap-4"
               }
             >

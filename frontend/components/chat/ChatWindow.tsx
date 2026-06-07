@@ -2,14 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { Message } from "@/types/chat";
+import { Sparkles } from "lucide-react";
 import ChatMessage from "./ChatMessage";
-
-/**
- * Chat Message Window
- * 
- * Manages the scrolling message list and the typing indicator.
- * Auto-scrolls to the bottom whenever a new message arrives.
- */
+import ContactMethods from "./ContactMethods";
 
 interface ChatWindowProps {
   messages: Message[];
@@ -19,7 +14,6 @@ interface ChatWindowProps {
 export default function ChatWindow({ messages, isLoading }: ChatWindowProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll logic happens every time the messages array changes
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -27,37 +21,49 @@ export default function ChatWindow({ messages, isLoading }: ChatWindowProps) {
   }, [messages, isLoading]);
 
   return (
-    <div 
+    <div
       ref={scrollRef}
-      className="flex-1 overflow-y-auto p-4 scroll-smooth scrollbar-thin scrollbar-thumb-slate-200"
+      className="flex-1 min-h-0 overflow-y-auto scroll-smooth scrollbar-hide bg-slate-50/80"
     >
-      {/* Welcome Message if no chat yet */}
-      {messages.length === 0 && (
-        <div className="flex flex-col items-center justify-center h-full opacity-60 text-center px-8">
-          <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-3xl flex items-center justify-center mb-4">
-             <span className="text-2xl">👋</span>
+      {/* Compact welcome strip */}
+      <div className="px-3 py-2.5 border-b border-purple-100/80 bg-white">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-700">
+            <Sparkles size={9} />
+            Under Development
+          </span>
+        </div>
+        <p className="text-[11px] leading-snug text-slate-500 mb-2">
+          AI assistant launching soon. Contact us directly in the meantime:
+        </p>
+        <ContactMethods variant="inline" />
+      </div>
+
+      {/* Messages */}
+      <div className="px-3 py-2">
+        {messages.length === 0 && !isLoading && (
+          <p className="text-center text-[11px] text-slate-400 py-3">
+            Send a message to get contact options
+          </p>
+        )}
+
+        {messages.map((msg) => (
+          <ChatMessage key={msg.id} message={msg} />
+        ))}
+
+        {isLoading && (
+          <div className="flex items-center gap-2 mb-2 animate-in fade-in duration-200">
+            <div className="h-6 w-6 rounded-md bg-purple-100 animate-pulse" />
+            <div className="rounded-xl rounded-tl-sm border border-purple-100 bg-white px-3 py-2">
+              <div className="flex items-center gap-1">
+                <span className="h-1 w-1 rounded-full bg-purple-400 animate-bounce" />
+                <span className="h-1 w-1 rounded-full bg-purple-400 animate-bounce [animation-delay:120ms]" />
+                <span className="h-1 w-1 rounded-full bg-purple-400 animate-bounce [animation-delay:240ms]" />
+              </div>
+            </div>
           </div>
-          <p className="text-slate-900 font-bold mb-1">How can I help you today?</p>
-          <p className="text-slate-500 text-xs">Ask me anything about Ella Man properties or Addis Ababa real estate.</p>
-        </div>
-      )}
-
-      {/* Render Message List */}
-      {messages.map((msg) => (
-        <ChatMessage key={msg.id} message={msg} />
-      ))}
-
-      {/* Typing Indicator */}
-      {isLoading && (
-        <div className="flex items-center gap-2 mb-4 animate-in fade-in duration-500">
-           <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white shrink-0">
-             <span className="text-[10px] animate-pulse">●●●</span>
-           </div>
-           <div className="bg-slate-100 px-4 py-2 rounded-2xl rounded-tl-none">
-              <span className="text-slate-400 text-xs font-medium">Assistant is thinking...</span>
-           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function PropertyGallery({ images }: PropertyGalleryProps) {
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl shadow-xl group">
+      <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl group">
         <Image
           src={images[activeImage]}
           alt={`Property image ${activeImage + 1}`}
@@ -36,15 +36,17 @@ export default function PropertyGallery({ images }: PropertyGalleryProps) {
           <>
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Previous image"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 touch-target"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-800" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Next image"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 touch-target"
             >
-              <ChevronRight className="w-6 h-6 text-gray-800" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
             </button>
           </>
         )}
@@ -58,7 +60,7 @@ export default function PropertyGallery({ images }: PropertyGalleryProps) {
 
       {/* Thumbnails */}
       {images.length > 1 && (
-        <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 sm:gap-3">
           {images.map((img, index) => (
             <button
               key={index}

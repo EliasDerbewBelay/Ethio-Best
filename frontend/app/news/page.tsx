@@ -66,12 +66,12 @@ const NewsPage = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* --- Header & Search --- */}
-      <section className="bg-purple-900 py-16 px-4">
+      <section className="bg-purple-900 py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             Latest <span className="text-yellow-400">Insights</span> & News
           </h1>
-          <p className="text-purple-100 max-w-2xl mx-auto mb-10 opacity-90">
+          <p className="text-purple-100 text-sm sm:text-base max-w-2xl mx-auto mb-8 sm:mb-10 opacity-90">
             Stay updated with the latest trends in the Ethiopian property market
             and expert advice from our seasoned team.
           </p>
@@ -81,7 +81,7 @@ const NewsPage = () => {
             <input
               type="text"
               placeholder="Search articles..."
-              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-purple-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 backdrop-blur-md"
+              className="w-full pl-12 pr-4 py-3.5 sm:py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-purple-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 backdrop-blur-md text-base"
             />
             <Search
               className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-200"
@@ -92,13 +92,13 @@ const NewsPage = () => {
       </section>
 
       {/* --- Categories Filter --- */}
-      <div className="sticky top-[73px] md:top-[88px] z-20 bg-white border-b border-gray-200 py-4 px-4 overflow-x-auto">
-        <div className="max-w-7xl mx-auto flex items-center gap-4 scrollbar-hide no-scrollbar">
+      <div className="sticky-below-header bg-white border-b border-gray-200 py-3 sm:py-4 px-4 overflow-x-auto scrollbar-hide">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 sm:gap-4 snap-x-mandatory">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`whitespace-nowrap px-6 py-2 rounded-full text-sm font-bold transition-all ${
+              className={`whitespace-nowrap px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all snap-start shrink-0 ${
                 activeCategory === cat
                   ? "bg-purple-900 text-yellow-400 shadow-md"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -128,7 +128,7 @@ const NewsPage = () => {
                 Featured
               </div>
             </div>
-            <div className="p-8 md:p-12 flex flex-col justify-center">
+            <div className="p-5 sm:p-8 md:p-12 flex flex-col justify-center">
               <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                 <span className="flex items-center gap-1">
                   <Tag size={14} className="text-purple-600" /> {post.category}
@@ -137,7 +137,7 @@ const NewsPage = () => {
                   <Calendar size={14} /> {post.date}
                 </span>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-purple-800 transition-colors">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-purple-800 transition-colors">
                 {post.title}
               </h2>
               <p className="text-gray-600 mb-8 line-clamp-3">{post.excerpt}</p>
@@ -150,7 +150,7 @@ const NewsPage = () => {
         ))}
 
         {/* --- Post Grid --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {POSTS.filter((p) => !p.featured).map((post) => (
             <article
               key={post.id}

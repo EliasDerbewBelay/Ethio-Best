@@ -101,7 +101,7 @@ const Blogs = () => {
             <div className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
-                <div className="relative h-64 lg:h-full min-h-[400px] overflow-hidden">
+                <div className="relative h-56 sm:h-64 lg:h-full lg:min-h-[400px] overflow-hidden">
                   <Image
                     src={featuredPost.image}
                     alt={featuredPost.title}

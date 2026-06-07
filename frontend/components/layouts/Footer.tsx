@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { BRAND_NAME, BRAND_EMAIL } from "@/constants/brand";
 
 const Footer = () => {
@@ -20,16 +19,10 @@ const Footer = () => {
       { name: "Urban Living", href: "/properties/urban" },
     ],
     resources: [
-      { name: "Blog & News", href: "/blog" },
+      { name: "Blog & News", href: "/news" },
       { name: "Buying Guide", href: "/guides/buying" },
       { name: "Selling Guide", href: "/guides/selling" },
       { name: "FAQs", href: "/faqs" },
-    ],
-    legal: [
-      { name: "Privacy Policy", href: "/privacy" },
-      { name: "Terms of Service", href: "/terms" },
-      { name: "Cookie Policy", href: "/cookies" },
-      { name: "Sitemap", href: "/sitemap" },
     ],
   };
 
@@ -81,30 +74,87 @@ const Footer = () => {
     },
   ];
 
+  const NavSection = ({
+    title,
+    items,
+  }: {
+    title: string;
+    items: { name: string; href: string }[];
+  }) => (
+    <>
+      {/* Mobile accordion */}
+      <details className="md:hidden group border-b border-gray-800 py-1">
+        <summary className="flex items-center justify-between py-3 text-white font-semibold text-base cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+          {title}
+          <svg
+            className="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </summary>
+        <ul className="pb-3 space-y-2">
+          {items.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                className="block py-1.5 text-gray-400 hover:text-amber-500 transition-colors"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </details>
+
+      {/* Desktop column */}
+      <div className="hidden md:block">
+        <h3 className="text-white font-semibold text-lg mb-4">{title}</h3>
+        <ul className="space-y-2">
+          {items.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      {/* Main Footer */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          {/* Brand Column */}
+    <footer className="bg-gray-900 text-gray-300 safe-bottom pb-[calc(var(--bottom-nav-height)+var(--safe-bottom))] xl:pb-0">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 mb-10 sm:mb-12">
+          {/* Brand column */}
           <div className="lg:col-span-2">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-white mb-2">
+            <div className="mb-5 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
                 {BRAND_NAME}
               </h2>
-              <div className="h-0.5 w-12 bg-amber-500 mb-4"></div>
+              <div className="h-0.5 w-12 bg-amber-500 mb-4" />
             </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
               Your trusted partner in finding the perfect home. With years of
               experience and a commitment to excellence, we help you make your
               real estate dreams a reality.
             </p>
 
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
+            <div className="space-y-3 text-sm sm:text-base">
+              <div className="flex items-start gap-3">
                 <svg
-                  className="w-5 h-5 text-amber-500 flex-shrink-0"
+                  className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -123,7 +173,7 @@ const Footer = () => {
                   />
                 </svg>
                 <span className="text-gray-400">
-                  123 Luxury Avenue, Beverly Hills, CA 90210
+                  Bole Medhanialem, Addis Ababa, Ethiopia
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -140,7 +190,12 @@ const Footer = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <a
+                  href="tel:+251975612114"
+                  className="text-gray-400 hover:text-amber-500 transition-colors"
+                >
+                  (+251) 975 6121 14
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <svg
@@ -156,70 +211,26 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span className="text-gray-400">
+                <a
+                  href={`mailto:${BRAND_EMAIL}`}
+                  className="text-gray-400 hover:text-amber-500 transition-colors break-all"
+                >
                   {BRAND_EMAIL}
-                </span>
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Navigation Columns */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
-            <ul className="space-y-2">
-              {navigation.company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              Properties
-            </h3>
-            <ul className="space-y-2">
-              {navigation.properties.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Resources</h3>
-            <ul className="space-y-2">
-              {navigation.resources.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <NavSection title="Company" items={navigation.company} />
+          <NavSection title="Properties" items={navigation.properties} />
+          <NavSection title="Resources" items={navigation.resources} />
         </div>
 
-        {/* Newsletter Section */}
+        {/* Newsletter */}
         <div className="border-t border-gray-800 pt-8 mb-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             <div>
-              <h3 className="text-white font-semibold text-lg mb-2">
+              <h3 className="text-white font-semibold text-base sm:text-lg mb-2">
                 Subscribe to Our Newsletter
               </h3>
               <p className="text-gray-400 text-sm">
@@ -231,37 +242,36 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-colors"
+                className="flex-1 px-4 py-3 sm:py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-colors text-base"
               />
-              <button className="px-6 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 whitespace-nowrap">
+              <button className="touch-target px-6 py-3 sm:py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 whitespace-nowrap">
                 Subscribe
               </button>
             </div>
           </div>
         </div>
 
-        {/* Social Links */}
+        {/* Social + copyright */}
         <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex gap-4">
+          <div className="flex flex-col-reverse sm:flex-row justify-between items-center gap-5">
+            <div className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
+              &copy; {currentYear} {BRAND_NAME}. All rights reserved.
+            </div>
+            <div className="flex gap-3 sm:gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 hover:bg-amber-500 rounded-full flex items-center justify-center transition-all duration-300 group"
+                  aria-label={social.name}
+                  className="touch-target w-10 h-10 bg-gray-800 hover:bg-amber-500 rounded-full flex items-center justify-center transition-all duration-300 group"
                 >
                   <span className="text-gray-400 group-hover:text-white transition-colors">
                     {social.icon}
                   </span>
                 </a>
               ))}
-            </div>
-
-            {/* Copyright */}
-            <div className="text-gray-500 text-sm">
-              &copy; {currentYear} {BRAND_NAME}. All rights reserved.
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-slate-50/50">
       {/* --- Header Section --- */}
-      <section className="bg-purple-900 py-20 md:py-28 px-4 text-center relative overflow-hidden">
+      <section className="bg-purple-900 py-14 sm:py-20 md:py-28 px-4 text-center relative overflow-hidden">
         {/* Animated Background Blobs */}
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-yellow-400 rounded-full blur-[120px]" />
@@ -30,10 +30,10 @@ const ContactPage = () => {
         </div>
 
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 tracking-tight">
             Get in <span className="text-yellow-400">Touch</span>
           </h1>
-          <p className="text-purple-100 text-lg md:text-xl opacity-90 leading-relaxed">
+          <p className="text-purple-100 text-sm sm:text-base md:text-lg lg:text-xl opacity-90 leading-relaxed">
             Have questions about a property or want to schedule a viewing? Our
             expert team is here to guide you every step of the way.
           </p>
@@ -41,11 +41,11 @@ const ContactPage = () => {
       </section>
 
       {/* --- Main Content Section --- */}
-      <section className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 pb-20">
+      <section className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 md:-mt-16 pb-12 sm:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Side: Contact Info */}
           <div className="lg:col-span-5">
-            <div className="bg-white rounded-3xl p-8 shadow-xl border border-purple-100 h-full flex flex-col justify-between">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-purple-100 h-full flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-bold text-purple-900 mb-8">
                   Contact Information
@@ -124,7 +124,7 @@ const ContactPage = () => {
 
           {/* Right Side: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-purple-100">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-xl border border-purple-100">
               <div className="flex items-center gap-3 mb-8 text-purple-800">
                 <div className="p-2 bg-yellow-100 rounded-lg">
                   <MessageSquare size={24} className="text-yellow-600" />
@@ -200,7 +200,7 @@ const ContactPage = () => {
 
       {/* --- Map Section --- */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20">
-        <div className="w-full h-[450px] bg-slate-200 rounded-[2.5rem] overflow-hidden relative border-4 border-white shadow-2xl">
+        <div className="w-full h-[280px] sm:h-[360px] md:h-[450px] bg-slate-200 rounded-2xl sm:rounded-[2.5rem] overflow-hidden relative border-2 sm:border-4 border-white shadow-2xl">
           <iframe
             title="Ella Man Real Estate Office Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.553255146524!2d38.7844!3d9.00!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMDAnMDAuMCJOIDM4wrA0NycwMy44IkU!5e0!3m2!1sen!2set!4v1625000000000!5m2!1sen!2set"
@@ -209,7 +209,7 @@ const ContactPage = () => {
             allowFullScreen
             loading="lazy"
           ></iframe>
-          <div className="absolute bottom-6 left-6 bg-purple-900 text-white px-8 py-3 rounded-full font-bold shadow-2xl border border-yellow-400/40 backdrop-blur-sm">
+          <div className="absolute bottom-3 left-3 sm:bottom-6 sm:left-6 bg-purple-900 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold shadow-2xl border border-yellow-400/40 backdrop-blur-sm">
             Visit Our Head Office
           </div>
         </div>

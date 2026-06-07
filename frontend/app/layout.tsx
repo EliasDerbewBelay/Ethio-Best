@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Rubik, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
+import MobileBottomNav from "@/components/layouts/MobileBottomNav";
 import ChatContainer from "@/components/chat/ChatContainer";
 
 const geistSans = Geist({
@@ -35,6 +36,14 @@ export const metadata: Metadata = {
     "Ella Man Real Estate — your trusted partner for luxury homes and premium properties in Addis Ababa, Ethiopia.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#581c87",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,10 +54,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-dvh flex flex-col overflow-x-hidden antialiased">
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen mobile-main-pad">{children}</main>
         <Footer />
+        <MobileBottomNav />
         <ChatContainer />
       </body>
     </html>

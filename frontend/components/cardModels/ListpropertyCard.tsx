@@ -77,7 +77,7 @@ const ListPropertyCard: React.FC<ListPropertyCardProps> = ({
               </div>
 
               {/* Features */}
-              <div className="flex gap-4 mt-3 text-gray-600 text-sm">
+              <div className="flex flex-wrap gap-3 sm:gap-4 mt-3 text-gray-600 text-sm">
                 <span className="flex items-center gap-1">
                   <Bed className="w-4 h-4" />
                   {property.beds} bed{property.beds !== 1 ? "s" : ""}
@@ -158,7 +158,7 @@ const ListPropertyCard: React.FC<ListPropertyCardProps> = ({
         </p>
 
         {/* Features */}
-        <div className="flex justify-between items-center mt-3 pt-3 border-t border-gray-100">
+        <div className="flex flex-col xs:flex-row xs:justify-between xs:items-center gap-2 mt-3 pt-3 border-t border-gray-100">
           <div className="flex gap-3 text-gray-600 text-sm">
             <span className="flex items-center gap-1">
               <Bed className="w-4 h-4" />
@@ -173,7 +173,7 @@ const ListPropertyCard: React.FC<ListPropertyCardProps> = ({
               {property.sqft}
             </span>
           </div>
-          <p className="text-lg font-bold text-gray-900">
+          <p className="text-base sm:text-lg font-bold text-gray-900">
             {formatPrice(property.price)}
             <span className="text-xs font-normal text-gray-500">
               /{property.priceType}

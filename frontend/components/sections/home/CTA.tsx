@@ -2,12 +2,12 @@ import React from "react";
 
 const CTA = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-amber-500 to-amber-600">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-amber-500 to-amber-600">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
           Start Your Property Journey Today
         </h2>
-        <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+        <p className="text-white/90 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
           Join thousands of satisfied homeowners who found their dream home with
           us
         </p>
@@ -15,9 +15,9 @@ const CTA = () => {
           <input
             type="email"
             placeholder="Enter your email address"
-            className="px-6 py-3 rounded-lg w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-white"
+            className="px-6 py-3.5 rounded-lg w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-white text-base"
           />
-          <button className="px-8 py-3 bg-white text-amber-600 font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+          <button className="touch-target w-full sm:w-auto px-8 py-3.5 bg-white text-amber-600 font-semibold rounded-lg hover:shadow-lg transition-all duration-300 active:scale-95">
             Get Started
           </button>
         </div>

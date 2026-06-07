@@ -9,13 +9,13 @@ const Location = () => {
   const mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed`;
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+    <div className="w-full max-w-6xl mx-auto p-2 sm:p-4">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
             Property Location
           </h2>
-          <p className="text-gray-500 mt-1 text-lg">
+          <p className="text-gray-500 mt-1 text-sm sm:text-base md:text-lg">
             Ella Man Real Estate - Addis Ababa, Ethiopia
           </p>
         </div>
@@ -23,14 +23,14 @@ const Location = () => {
           href={`https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm text-center"
+          className="touch-target bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 sm:py-2 rounded-lg font-medium transition-colors shadow-sm text-center w-full sm:w-auto"
         >
           Get Directions
         </a>
       </div>
 
       {/* Map Container with the Pointer */}
-      <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+      <div className="relative w-full h-[240px] sm:h-[360px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white">
         <iframe
           width="100%"
           height="100%"

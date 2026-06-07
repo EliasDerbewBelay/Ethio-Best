@@ -210,7 +210,7 @@ const Testimonies = () => {
                 </div>
 
                 {/* Testimonial Text - Reduced text size */}
-                <p className="text-lg text-gray-700 leading-snug mb-4 px-4">
+                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-snug mb-4 px-2 sm:px-4">
                   "{testimonials[activeIndex].testimonial}"
                 </p>
 

@@ -50,10 +50,10 @@ const AboutOverview = () => {
             </div>
 
             {/* Experience Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-2xl p-6 shadow-2xl hidden md:block">
+            <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-2xl p-4 sm:p-6 shadow-2xl">
               <div className="text-center">
-                <div className="text-4xl font-bold">15+</div>
-                <div className="text-sm">Years of Excellence</div>
+                <div className="text-2xl sm:text-4xl font-bold">15+</div>
+                <div className="text-xs sm:text-sm">Years of Excellence</div>
               </div>
             </div>
           </div>

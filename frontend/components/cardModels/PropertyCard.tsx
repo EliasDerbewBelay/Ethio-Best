@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function PropertyCard({ property }: { property: Property }) {
   return (
-    <div className="group max-w-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-xl bg-white border border-gray-100 transition-all duration-300 flex flex-col">
+    <div className="group w-full rounded-2xl overflow-hidden shadow-sm hover:shadow-xl bg-white border border-gray-100 transition-all duration-300 flex flex-col">
       {/* Image Container */}
       <div className="relative h-64 w-full overflow-hidden">
         <Image
@@ -52,22 +52,22 @@ export default function PropertyCard({ property }: { property: Property }) {
         </div>
 
         {/* Specs Grid */}
-        <div className="grid grid-cols-3 gap-2 mb-6 border-b border-gray-100 pb-5">
+        <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mb-6 border-b border-gray-100 pb-5">
           <div className="flex items-center gap-2 text-slate-600">
             <BedDouble size={18} className="text-gray-400" />
-            <span className="text-sm font-semibold whitespace-nowrap">
+            <span className="text-xs sm:text-sm font-semibold whitespace-nowrap">
               {property.beds} bed
             </span>
           </div>
           <div className="flex items-center gap-2 text-slate-600">
             <Bath size={18} className="text-gray-400" />
-            <span className="text-sm font-semibold whitespace-nowrap">
+            <span className="text-xs sm:text-sm font-semibold whitespace-nowrap">
               {property.baths} bath
             </span>
           </div>
           <div className="flex items-center gap-2 text-slate-600">
             <Square size={16} className="text-gray-400" />
-            <span className="text-sm font-semibold whitespace-nowrap">
+            <span className="text-xs sm:text-sm font-semibold whitespace-nowrap">
               {property.sqft} sqft
             </span>
           </div>

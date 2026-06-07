@@ -47,7 +47,7 @@ export default function TourControls({
   };
 
   return (
-    <div className="absolute inset-x-0 inset-y-0 pointer-events-none flex flex-col justify-between p-6 sm:p-10">
+    <div className="absolute inset-x-0 inset-y-0 pointer-events-none flex flex-col justify-between p-3 sm:p-6 md:p-10">
       
       {/* Header Area */}
       <div className="flex justify-between items-start pointer-events-auto">
@@ -56,7 +56,7 @@ export default function TourControls({
              <div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center shadow-lg shadow-yellow-400/20 ring-4 ring-yellow-400/10">
                 <Box className="w-6 h-6 text-black" />
              </div>
-             <h1 className="text-2xl font-black text-white drop-shadow-lg tracking-tight">
+             <h1 className="text-base sm:text-xl md:text-2xl font-black text-white drop-shadow-lg tracking-tight">
                ELLA MAN <span className="text-yellow-400">360°</span>
              </h1>
           </div>
@@ -67,7 +67,7 @@ export default function TourControls({
 
         <Link 
           href="/estates" 
-          className="bg-white/10 hover:bg-white text-white hover:text-black w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-xl border border-white/20 active:scale-95 group"
+          className="bg-white/10 hover:bg-white text-white hover:text-black w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-xl border border-white/20 active:scale-95 group touch-target"
         >
           <X className="w-6 h-6 group-hover:rotate-90 transition-transform" />
         </Link>
@@ -76,7 +76,7 @@ export default function TourControls({
       {/* Center Area: Room Selection Menu */}
       {showRoomMenu && (
         <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-black/60 backdrop-blur-lg pointer-events-auto">
-          <div className="bg-purple-950/80 border border-purple-500/30 p-8 rounded-[3rem] shadow-2xl max-w-2xl w-full animate-in fade-in zoom-in duration-300">
+          <div className="bg-purple-950/80 border border-purple-500/30 p-5 sm:p-8 rounded-2xl sm:rounded-[3rem] shadow-2xl max-w-2xl w-full animate-in fade-in zoom-in duration-300 max-h-[85dvh] overflow-y-auto">
             <div className="flex justify-between items-center mb-8">
                <h2 className="text-white text-2xl font-black uppercase tracking-widest">Select Room</h2>
                <button 
@@ -123,16 +123,16 @@ export default function TourControls({
       )}
 
       {/* Main Controls Panel (Bottom) */}
-      <div className="flex flex-row items-end justify-between pointer-events-auto">
+      <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-end justify-between gap-3 sm:gap-0 pointer-events-auto">
         
         {/* Left: Room Switcher Button */}
         <div className="flex flex-col gap-4">
            <button 
              onClick={() => setShowRoomMenu(true)}
-             className="flex items-center gap-3 py-3 px-6 bg-purple-600 hover:bg-purple-500 text-white rounded-2xl shadow-xl shadow-purple-600/20 border border-purple-400/30 transition-all hover:-translate-y-1 active:scale-95 group"
+             className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 py-3 px-4 sm:px-6 bg-purple-600 hover:bg-purple-500 text-white rounded-xl sm:rounded-2xl shadow-xl shadow-purple-600/20 border border-purple-400/30 transition-all hover:-translate-y-1 active:scale-95 group w-full sm:w-auto touch-target"
            >
              <LayoutGrid className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
-             <span className="font-black text-sm uppercase tracking-widest">Toggle Room</span>
+             <span className="font-black text-xs sm:text-sm uppercase tracking-widest">Toggle Room</span>
            </button>
 
            {/* Navigation Indicator & Helpers */}
@@ -152,7 +152,7 @@ export default function TourControls({
         </div>
 
         {/* Right side group: Zoom & Tools */}
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-row sm:flex-col items-center justify-end gap-2 sm:gap-4">
           
           <div className="flex flex-col gap-2 p-2 bg-black/40 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl">
             <button 

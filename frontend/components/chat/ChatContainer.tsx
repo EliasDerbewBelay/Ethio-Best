@@ -1,17 +1,18 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 import { Message } from "@/types/chat";
+import { BRAND_SHORT_NAME } from "@/constants/brand";
+import BrandLogo from "@/public/Logos/ella-man-logo.png";
 import ChatWindow from "./ChatWindow";
 import ChatInput from "./ChatInput";
 import ChatButton from "./ChatButton";
 
-/**
- * Chat Container (Stateful Component)
- * 
- * Manages the message history and interaction with the /api/chat endpoint.
- */
+const DEVELOPMENT_REPLY =
+  "Our AI assistant is under development. Please reach our team using the contacts below — we're ready to help.";
 
 export default function ChatContainer() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,6 @@ export default function ChatContainer() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSend = useCallback(async (content: string) => {
-    // 1. Add User Message to UI
     const userMessage: Message = {
       id: crypto.randomUUID(),
       role: "user",
@@ -30,53 +30,19 @@ export default function ChatContainer() {
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
 
-    try {
-      // 2. Call our Next.js API route
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          messages: [...messages, userMessage].map(({ role, content }) => ({ role, content })) 
-        }),
-      });
+    await new Promise((resolve) => setTimeout(resolve, 700));
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        const errorMessage = errorData.error || "Failed to get response from server";
-        
-        setMessages((prev) => [...prev, {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          content: `⚠️ Error: ${errorMessage}. Please check your API key or model access.`,
-          createdAt: new Date(),
-        }]);
-        setIsLoading(false);
-        return;
-      }
+    const assistantMessage: Message = {
+      id: crypto.randomUUID(),
+      role: "assistant",
+      content: DEVELOPMENT_REPLY,
+      createdAt: new Date(),
+      variant: "development",
+    };
 
-      const data = await response.json();
-
-      // 3. Add AI Response and stop loading
-      const aiMessage: Message = {
-        id: crypto.randomUUID(),
-        role: "assistant",
-        content: data.content,
-        createdAt: new Date(),
-      };
-
-      setMessages((prev) => [...prev, aiMessage]);
-    } catch (error: any) {
-      console.error("Chat Error:", error);
-      setMessages((prev) => [...prev, {
-        id: crypto.randomUUID(),
-        role: "assistant",
-        content: `❌ Connection Error: ${error.message || "Something went wrong"}.`,
-        createdAt: new Date(),
-      }]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [messages]);
+    setMessages((prev) => [...prev, assistantMessage]);
+    setIsLoading(false);
+  }, []);
 
   return (
     <>
@@ -84,31 +50,66 @@ export default function ChatContainer() {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20, x: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20, x: 20 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-24 right-6 z-[9999] w-[calc(100vw-3rem)] sm:w-[420px] h-[600px] max-h-[calc(100vh-10rem)] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col border border-slate-100 ring-4 ring-black/5"
-          >
-            {/* Header */}
-            <div className="bg-purple-700 p-6 flex items-center gap-4">
-               <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-purple-200">
-                  <span className="text-xl">🤖</span>
-               </div>
-               <div className="flex-1">
-                  <h3 className="text-white font-black uppercase tracking-widest text-sm leading-tight">Ella Man AI</h3>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-purple-100/60 text-[10px] font-bold uppercase tracking-widest">Active Assistant</span>
-                  </div>
-               </div>
-            </div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[9998] bg-black/25 sm:bg-transparent pointer-events-auto sm:pointer-events-none"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
 
-            {/* Content & Input */}
-            <ChatWindow messages={messages} isLoading={isLoading} />
-            <ChatInput onSend={handleSend} isLoading={isLoading} />
-          </motion.div>
+            <motion.aside
+              role="dialog"
+              aria-label="Ella Man Assistant"
+              initial={{ opacity: 0, y: 16, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.97 }}
+              transition={{ type: "spring", damping: 30, stiffness: 380 }}
+              className="chat-panel fixed z-[9999] flex flex-col overflow-hidden rounded-2xl border border-purple-200/70 bg-white shadow-[0_8px_40px_rgba(88,28,135,0.18)]"
+              style={{
+                bottom:
+                  "max(calc(var(--bottom-nav-height) + 4.25rem), calc(1rem + var(--safe-bottom)))",
+                right: "max(0.75rem, var(--safe-right))",
+              }}
+            >
+              {/* Compact header */}
+              <div className="relative shrink-0 bg-gradient-to-r from-purple-950 to-purple-800 px-3 py-2.5">
+                <div className="relative flex items-center gap-2.5">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white shadow ring-1 ring-yellow-400/50">
+                    <Image
+                      src={BrandLogo}
+                      alt={BRAND_SHORT_NAME}
+                      width={28}
+                      height={28}
+                      className="h-6 w-6 object-contain"
+                    />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <h3 className="truncate text-sm font-bold text-white leading-tight">
+                      {BRAND_SHORT_NAME} Assistant
+                    </h3>
+                    <p className="text-[10px] text-purple-200/90">
+                      Coming soon · Team available now
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white/90 transition-colors hover:bg-white/20"
+                    aria-label="Close chat"
+                  >
+                    <X size={15} />
+                  </button>
+                </div>
+              </div>
+
+              <ChatWindow messages={messages} isLoading={isLoading} />
+              <ChatInput onSend={handleSend} isLoading={isLoading} />
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </>
