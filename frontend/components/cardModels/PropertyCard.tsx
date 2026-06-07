@@ -28,6 +28,13 @@ export default function PropertyCard({ property }: { property: Property }) {
           </div>
         )}
 
+        {property.virtualTourUrl && (
+          <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 flex items-center gap-1 bg-purple-950/80 backdrop-blur-sm text-yellow-400 text-[9px] sm:text-caption font-bold px-2 py-0.5 sm:py-1 rounded-md uppercase tracking-wider z-10 border border-yellow-400/30">
+            <Rotate3d size={12} />
+            360° Tour
+          </div>
+        )}
+
         <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 bg-white/90 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg shadow z-10 border border-white/20">
           <span className="text-caption sm:text-body-sm font-bold text-purple-700">
             {new Intl.NumberFormat("en-ET", {
@@ -84,15 +91,13 @@ export default function PropertyCard({ property }: { property: Property }) {
               <ExternalLink size={16} className="sm:w-[18px] sm:h-[18px]" />
             </Link>
             {property.virtualTourUrl && (
-              <a
-                href={property.virtualTourUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Virtual Tour"
-                className="p-1.5 sm:p-2 bg-white hover:bg-purple-600 rounded-lg text-purple-600 hover:text-white transition-all border border-purple-100"
+              <Link
+                href={`/estates/${property.id}#virtual-tour`}
+                title="360° Virtual Tour"
+                className="p-1.5 sm:p-2 bg-white hover:bg-yellow-400 rounded-lg text-purple-600 hover:text-purple-950 transition-all border border-purple-100"
               >
                 <Rotate3d size={16} className="sm:w-[18px] sm:h-[18px]" />
-              </a>
+              </Link>
             )}
             <button
               title="Add to Favorite"

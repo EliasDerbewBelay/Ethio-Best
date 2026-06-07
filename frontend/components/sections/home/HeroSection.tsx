@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PlayCircle } from "lucide-react";
 import HeroSecPptCard from "@/components/cardModels/HeroSecPptCard";
 
 const properties = [
@@ -39,32 +40,35 @@ const HeroSection = () => {
       <div className="relative section-container py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12">
           <div className="flex flex-col gap-4 sm:gap-5 items-center text-center max-w-3xl mx-auto">
-            <span className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full bg-white/10 border border-white/10 text-yellow-300 text-label">
-              Premium Real Estate in Addis Ababa
+            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-white/10 border border-white/10 text-yellow-300 text-label">
+              <PlayCircle className="w-3.5 h-3.5" />
+              Immersive 360° Virtual Tours
             </span>
 
             <h1 className="text-display text-white">
-              Find Your Perfect{" "}
-              <span className="text-yellow-400">Home Today</span>
+              Tour Homes{" "}
+              <span className="text-yellow-400">Before You Visit</span>
             </h1>
 
             <p className="text-body-sm text-purple-100/80 max-w-xl">
-              We understand that finding the perfect property is more than a
-              search — it&apos;s a journey toward your future.
+              Ella Man Real Estate lets you walk through every room in full
+              360° — explore layouts, finishes, and gardens from anywhere in
+              Addis Ababa.
             </p>
 
             <div className="flex flex-col xs:flex-row w-full xs:w-auto gap-2.5 sm:gap-3 pt-1">
               <Link
-                href="/contact"
+                href="#virtual-tour"
                 className="btn-primary w-full xs:w-auto bg-yellow-400 hover:bg-yellow-300 text-purple-950 shadow-lg shadow-yellow-400/20 active:scale-95"
               >
-                Contact Us
+                <PlayCircle className="w-4 h-4" />
+                See How It Works
               </Link>
               <Link
                 href="/estates"
                 className="btn-secondary w-full xs:w-auto bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm active:scale-95"
               >
-                Explore Properties
+                Browse Listings
               </Link>
             </div>
           </div>

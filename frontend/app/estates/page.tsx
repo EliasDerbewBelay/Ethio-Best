@@ -57,7 +57,7 @@ const Page: React.FC = () => {
                 Ella Man Real Estate
               </h1>
               <p className="text-caption sm:text-body-sm text-gray-600 mt-0.5">
-                Homes / For Rent in Addis Ababa
+                Every listing includes a full 360° virtual tour — walk through homes before you visit
               </p>
             </div>
             <div className="text-xs sm:text-sm text-gray-500 font-medium">

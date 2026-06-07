@@ -5,6 +5,7 @@ import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
 import MobileBottomNav from "@/components/layouts/MobileBottomNav";
 import ChatContainer from "@/components/chat/ChatContainer";
+import VirtualTourRoot from "@/components/virtual-tour/VirtualTourRoot";
 import { BRAND_NAME, SITE_URL } from "@/constants/brand";
 
 const geistSans = Geist({
@@ -70,6 +71,7 @@ export default function RootLayout({
         <Footer />
         <MobileBottomNav />
         <ChatContainer />
+        <VirtualTourRoot />
       </body>
     </html>
   );

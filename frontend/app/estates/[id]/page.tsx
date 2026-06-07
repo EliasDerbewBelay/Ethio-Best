@@ -149,7 +149,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
           <div className="lg:col-span-1 space-y-6">
             
             {/* CTA Card: Virtual Tour */}
-            <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 space-y-3 sm:space-y-4 ring-1 ring-purple-50">
+            <div id="virtual-tour" className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 space-y-3 sm:space-y-4 ring-1 ring-purple-50 scroll-mt-24">
                <div className="p-2 sm:p-2.5 bg-purple-100/50 rounded-xl text-center">
                   <span className="text-purple-700 font-bold text-caption tracking-wide">EXPERIENCE IT NOW</span>
                </div>
@@ -157,7 +157,19 @@ export default async function PropertyDetailPage({ params }: PageProps) {
                <p className="text-caption sm:text-body-sm text-gray-500 text-center px-1">
                   Explore every corner of this property from the comfort of your home. High-definition 360° tour.
                </p>
-               <VirtualTourButton url={property.virtualTourUrl} />
+               <VirtualTourButton
+                  property={{
+                    id: property.id,
+                    title: property.title,
+                    price: property.price,
+                    priceType: property.priceType,
+                    beds: property.beds,
+                    baths: property.baths,
+                    sqft: property.sqft,
+                    image: property.image,
+                  }}
+                  url={property.virtualTourUrl}
+                />
             </div>
 
             {/* Agent Contact Card */}

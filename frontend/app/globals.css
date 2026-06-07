@@ -314,3 +314,116 @@ body.menu-open {
     max-height: 27rem;
   }
 }
+
+/* ── Virtual Tour (Ella Man purple + yellow) ── */
+.vt-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(59, 7, 100, 0.72);
+  border: 1px solid rgba(250, 204, 21, 0.15);
+}
+
+/* Pannellum navigation hotspot — yellow pulsing ring */
+.pnlm-hotspot.vt-nav-hotspot {
+  width: 48px !important;
+  height: 48px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+.pnlm-hotspot.vt-nav-hotspot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #facc15;
+  animation: vt-pulse-ring 2s ease-out infinite;
+}
+
+.pnlm-hotspot.vt-nav-hotspot::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: rgba(250, 204, 21, 0.35);
+  border: 2px solid #facc15;
+  box-shadow: 0 0 20px rgba(126, 34, 206, 0.6);
+}
+
+.pnlm-hotspot.vt-nav-hotspot .pnlm-hotspot-base {
+  display: none;
+}
+
+/* Pannellum info hotspot */
+.pnlm-hotspot.vt-info-hotspot {
+  width: 32px !important;
+  height: 32px !important;
+  background: #facc15 !important;
+  border-radius: 50% !important;
+  border: 2px solid #581c87 !important;
+  color: #581c87 !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 28px !important;
+  text-align: center !important;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(88, 28, 135, 0.5);
+}
+
+.pnlm-hotspot.vt-info-hotspot::before {
+  content: "i";
+}
+
+.pnlm-hotspot.vt-info-hotspot .pnlm-hotspot-base,
+.pnlm-hotspot.vt-info-hotspot span {
+  display: none !important;
+}
+
+@keyframes vt-pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Panorama look-around — pointer + touch drag */
+.vt-panorama-shell {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.vt-panorama-shell #vt-pannellum,
+.vt-panorama-shell #vt-pannellum .pnlm-container,
+.vt-panorama-shell #vt-pannellum .pnlm-render-container,
+.vt-panorama-shell #vt-pannellum canvas {
+  cursor: grab;
+  touch-action: none;
+  height: 100%;
+  width: 100%;
+}
+
+.vt-panorama-shell.vt-dragging #vt-pannellum,
+.vt-panorama-shell.vt-dragging #vt-pannellum .pnlm-container,
+.vt-panorama-shell.vt-dragging #vt-pannellum canvas {
+  cursor: grabbing;
+}
+
+.vt-panorama-shell .pnlm-hotspot {
+  cursor: pointer !important;
+}
+
+/* Hide default Pannellum UI inside tour */
+#vt-pannellum .pnlm-ui,
+#vt-pannellum .pnlm-load-box {
+  display: none !important;
+}
