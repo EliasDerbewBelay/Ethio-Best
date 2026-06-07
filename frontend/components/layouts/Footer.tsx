@@ -135,7 +135,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-gray-300 safe-bottom pb-[calc(var(--bottom-nav-height)+var(--safe-bottom))] xl:pb-0">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8">
+      <div className="section-container pt-10 sm:pt-14 pb-6 sm:pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 mb-10 sm:mb-12">
           {/* Brand column */}
           <div className="lg:col-span-2">

@@ -5,6 +5,7 @@ import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
 import MobileBottomNav from "@/components/layouts/MobileBottomNav";
 import ChatContainer from "@/components/chat/ChatContainer";
+import { BRAND_NAME, SITE_URL } from "@/constants/brand";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ella Man Real Estate",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: BRAND_NAME,
+    template: `%s | ${BRAND_NAME}`,
+  },
   description:
     "Ella Man Real Estate — your trusted partner for luxury homes and premium properties in Addis Ababa, Ethiopia.",
+  openGraph: {
+    siteName: BRAND_NAME,
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export const viewport: Viewport = {

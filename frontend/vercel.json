@@ -1,3 +1,12 @@
 {
-  "name": "ella-man-realestate"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "name": "ella-man-real-estate",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
 }

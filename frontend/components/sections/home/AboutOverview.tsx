@@ -1,240 +1,117 @@
 import React from "react";
 import Image from "next/image";
-import aboutus from "@/public/RealEstateImage/aboutus.jpeg"
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, DollarSign, Users, Home } from "lucide-react";
+import aboutus from "@/public/RealEstateImage/aboutus.jpeg";
+
+const features = [
+  { icon: CheckCircle2, title: "Expert Guidance", desc: "Professional advice at every step" },
+  { icon: DollarSign, title: "Best Market Prices", desc: "Competitive rates guaranteed" },
+  { icon: Users, title: "Happy Clients", desc: "500+ satisfied customers" },
+  { icon: Home, title: "Premium Properties", desc: "Curated luxury listings" },
+];
 
 const AboutOverview = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Side - Images */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              {/* Main Image */}
-              <div className="relative col-span-2 rounded-2xl overflow-hidden shadow-2xl">
-                <div className="relative h-64 md:h-80 lg:h-96">
-                  <Image
-                    src={aboutus}
-                    alt="Luxury real estate property"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+    <section className="section bg-white">
+      <div className="section-container">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
+          <div className="relative order-1">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
+              <div className="relative col-span-2 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
+                <div className="relative h-48 sm:h-64 md:h-72 lg:h-80">
+                  <Image src={aboutus} alt="Luxury real estate property" fill className="object-cover" priority />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
               </div>
-
-              {/* Small Image 1 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg">
-                <div className="relative h-32 md:h-40">
+              <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-md">
+                <div className="relative h-24 sm:h-32 md:h-36">
                   <Image
                     src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                     alt="Modern home interior"
                     fill
                     className="object-cover"
+                    sizes="50vw"
                   />
                 </div>
               </div>
-
-              {/* Small Image 2 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg">
-                <div className="relative h-32 md:h-40">
+              <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-md">
+                <div className="relative h-24 sm:h-32 md:h-36">
                   <Image
                     src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                     alt="Luxury home exterior"
                     fill
                     className="object-cover"
+                    sizes="50vw"
                   />
                 </div>
               </div>
             </div>
-
-            {/* Experience Badge */}
-            <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-2xl p-4 sm:p-6 shadow-2xl">
+            <div className="absolute -bottom-3 -right-1 sm:-bottom-5 sm:-right-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl sm:rounded-2xl px-3 py-2 sm:px-5 sm:py-4 shadow-xl">
               <div className="text-center">
-                <div className="text-2xl sm:text-4xl font-bold">15+</div>
-                <div className="text-xs sm:text-sm">Years of Excellence</div>
+                <div className="text-xl sm:text-3xl font-bold">15+</div>
+                <div className="text-caption sm:text-body-sm">Years of Excellence</div>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Content */}
-          <div className="space-y-6">
-            {/* Section Tag */}
-            <div className="inline-block">
-              <span className="text-amber-600 font-semibold text-sm uppercase tracking-wider">
-                About Us
-              </span>
-              <div className="h-0.5 w-12 bg-amber-500 mt-2"></div>
+          <div className="space-y-4 sm:space-y-5 order-2">
+            <div>
+              <span className="text-label">About Us</span>
+              <div className="h-0.5 w-10 bg-amber-500 mt-1.5" />
             </div>
 
-            {/* Heading */}
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-              Your Trusted Partner in
+            <h2 className="text-h2 text-gray-900">
+              Your Trusted Partner in{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">
-                {" "}
                 Finding Your Dream Home
               </span>
             </h2>
 
-            {/* Description */}
-            <p className="text-gray-600 leading-relaxed">
-              Ella Man Real Estate has been at the forefront of the real
-              estate industry, helping thousands of families find their perfect
-              homes. With our deep understanding of the market and commitment to
-              excellence, we've built a reputation for delivering exceptional
-              results.
+            <p className="text-body-sm text-gray-600">
+              Ella Man Real Estate has been at the forefront of the real estate
+              industry, helping thousands of families find their perfect homes.
             </p>
 
-            <p className="text-gray-600 leading-relaxed">
-              Our team of dedicated professionals combines local expertise with
-              global standards, ensuring that every client receives personalized
-              attention and the highest level of service throughout their
-              property journey.
+            <p className="text-body-sm text-gray-600">
+              Our team combines local expertise with global standards, ensuring
+              personalized attention throughout your property journey.
             </p>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-amber-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+            <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 pt-2">
+              {features.map((f) => (
+                <div key={f.title} className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="icon-box-sm bg-amber-100 rounded-lg flex items-center justify-center">
+                    <f.icon className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-body-sm font-semibold text-gray-900">{f.title}</h3>
+                    <p className="text-caption text-gray-500">{f.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Expert Guidance
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Professional advice at every step
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-amber-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Best Market Prices
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Competitive rates guaranteed
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-amber-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Happy Clients
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    500+ satisfied customers
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-amber-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Premium Properties
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Curated luxury listings
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Stats Section */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">500+</div>
-                <div className="text-xs text-gray-500">Properties Sold</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">98%</div>
-                <div className="text-xs text-gray-500">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">24/7</div>
-                <div className="text-xs text-gray-500">Customer Support</div>
-              </div>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 border-t border-gray-200">
+              {[
+                { val: "500+", label: "Properties Sold" },
+                { val: "98%", label: "Satisfaction" },
+                { val: "24/7", label: "Support" },
+              ].map((s) => (
+                <div key={s.label} className="text-center">
+                  <div className="text-h3 text-gray-900">{s.val}</div>
+                  <div className="text-caption text-gray-500">{s.label}</div>
+                </div>
+              ))}
             </div>
 
-            {/* CTA Button */}
-            <div className="pt-4">
-              <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
-                Learn More About Us
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
-            </div>
+            <Link
+              href="/about"
+              className="btn-primary bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:shadow-lg w-full xs:w-auto mt-2"
+            >
+              Learn More About Us
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

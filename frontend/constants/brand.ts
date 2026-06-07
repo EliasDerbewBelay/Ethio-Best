@@ -1,5 +1,8 @@
 export const BRAND_NAME = "Ella Man Real Estate";
 export const BRAND_SHORT_NAME = "ELLA MAN";
+/** Production Vercel URL — matches project name in vercel.json */
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ella-man-real-estate.vercel.app";
 export const BRAND_TAGLINE = "Real Estate";
 export const BRAND_EMAIL = "info@ellamanrealestate.com";
 export const BRAND_PHONE = "+251975612114";

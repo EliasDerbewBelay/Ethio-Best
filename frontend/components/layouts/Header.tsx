@@ -27,11 +27,11 @@ export default function Header() {
             alt="Ella Man Real Estate Logo"
             height={40}
             width={40}
-            className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 object-contain shrink-0"
+            className="h-8 w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 object-contain shrink-0"
             priority
           />
           <div className="flex flex-col leading-none min-w-0">
-            <span className="text-xs sm:text-sm font-bold tracking-tight md:text-base truncate">
+            <span className="text-caption sm:text-body-sm font-bold tracking-tight truncate">
               {BRAND_SHORT_NAME}
             </span>
             <span className="hidden xs:block text-[10px] text-purple-200 md:text-xs truncate">

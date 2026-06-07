@@ -9,13 +9,13 @@ const Location = () => {
   const mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed`;
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-2 sm:p-4">
+    <div className="w-full">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+          <h2 className="text-h2 text-gray-900">
             Property Location
           </h2>
-          <p className="text-gray-500 mt-1 text-sm sm:text-base md:text-lg">
+          <p className="text-body-sm text-gray-500 mt-1">
             Ella Man Real Estate - Addis Ababa, Ethiopia
           </p>
         </div>
@@ -30,7 +30,7 @@ const Location = () => {
       </div>
 
       {/* Map Container with the Pointer */}
-      <div className="relative w-full h-[240px] sm:h-[360px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white">
+      <div className="relative w-full h-[clamp(14rem,45vw,31.25rem)] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-gray-100 sm:border-2 sm:border-white">
         <iframe
           width="100%"
           height="100%"
@@ -45,26 +45,26 @@ const Location = () => {
       </div>
 
       {/* Location Features */}
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 bg-white border border-gray-100 rounded-2xl shadow-sm">
-          <span className="text-blue-600 font-bold block mb-1">Region</span>
-          <p className="text-gray-700">Addis Ababa</p>
+      <div className="mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+        <div className="p-3 sm:p-4 bg-white border border-gray-100 rounded-xl sm:rounded-2xl shadow-sm">
+          <span className="text-label text-blue-600 block mb-0.5 sm:mb-1">Region</span>
+          <p className="text-body-sm text-gray-700">Addis Ababa</p>
         </div>
-        <div className="p-4 bg-white border border-gray-100 rounded-2xl shadow-sm">
-          <span className="text-blue-600 font-bold block mb-1">
+        <div className="p-3 sm:p-4 bg-white border border-gray-100 rounded-xl sm:rounded-2xl shadow-sm">
+          <span className="text-label text-blue-600 block mb-0.5 sm:mb-1">
             Neighborhood
           </span>
-          <p className="text-gray-700">Bole District</p>
+          <p className="text-body-sm text-gray-700">Bole District</p>
         </div>
-        <div className="p-4 bg-white border border-gray-100 rounded-2xl shadow-sm">
-          <span className="text-blue-600 font-bold block mb-1">
+        <div className="p-3 sm:p-4 bg-white border border-gray-100 rounded-xl sm:rounded-2xl shadow-sm">
+          <span className="text-label text-blue-600 block mb-0.5 sm:mb-1">
             Accessibility
           </span>
-          <p className="text-gray-700">Main Road Access</p>
+          <p className="text-body-sm text-gray-700">Main Road Access</p>
         </div>
-        <div className="p-4 bg-white border border-gray-100 rounded-2xl shadow-sm">
-          <span className="text-blue-600 font-bold block mb-1">Status</span>
-          <p className="text-gray-700 text-green-600 font-medium">
+        <div className="p-3 sm:p-4 bg-white border border-gray-100 rounded-xl sm:rounded-2xl shadow-sm">
+          <span className="text-label text-blue-600 block mb-0.5 sm:mb-1">Status</span>
+          <p className="text-body-sm text-green-600 font-medium">
             Verified Location
           </p>
         </div>

@@ -50,13 +50,13 @@ const Page: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Page header */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+        <div className="section-container py-4 sm:py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
             <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-h2 text-gray-900 leading-tight">
                 Ella Man Real Estate
               </h1>
-              <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
+              <p className="text-caption sm:text-body-sm text-gray-600 mt-0.5">
                 Homes / For Rent in Addis Ababa
               </p>
             </div>
@@ -69,7 +69,7 @@ const Page: React.FC = () => {
 
       {/* Filters — sticky below site header, horizontally scrollable on mobile */}
       <div className="bg-white border-b border-gray-200 sticky-below-header shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="section-container py-3">
           <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide snap-x-mandatory">
             {/* Property Type */}
             <div className="relative flex-shrink-0">
@@ -209,10 +209,10 @@ const Page: React.FC = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+      <div className="section-container page-content">
         {sortedProperties.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-xl border border-gray-100">
-            <p className="text-gray-400 text-lg">No properties found matching your criteria.</p>
+          <div className="text-center py-12 sm:py-16 bg-white rounded-xl border border-gray-100 px-4">
+            <p className="text-body-sm text-gray-400">No properties found matching your criteria.</p>
             <button 
               onClick={() => setSelectedPropertyType("All Properties")}
               className="mt-4 text-blue-600 font-semibold hover:underline"

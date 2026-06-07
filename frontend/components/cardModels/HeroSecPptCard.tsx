@@ -12,13 +12,11 @@ export default function HeroSecPptCard({
   alt,
 }: PropertyCardProps) {
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden shadow-lg bg-white/70 backdrop-blur-md border border-white/20">
-      <div className="relative h-[180px] sm:h-[200px] md:h-[220px] w-full">
-        <Image src={image} alt={alt} fill className="object-cover" priority />
+    <div className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-lg bg-white/70 backdrop-blur-md border border-white/20">
+      <div className="relative img-card-sm w-full">
+        <Image src={image} alt={alt} fill className="object-cover" priority sizes="(max-width:640px) 72vw, 33vw" />
       </div>
-
-      {/* Price Badge */}
-      <div className="absolute top-4 left-4 bg-white/90 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full shadow">
+      <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-white/90 text-gray-800 text-caption font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow">
         {price}
       </div>
     </div>
