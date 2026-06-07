@@ -38,7 +38,7 @@ export default function ChatWindow({ messages, isLoading }: ChatWindowProps) {
              <span className="text-2xl">👋</span>
           </div>
           <p className="text-slate-900 font-bold mb-1">How can I help you today?</p>
-          <p className="text-slate-500 text-xs">Ask me anything about Ethio Best properties or Addis Ababa real estate.</p>
+          <p className="text-slate-500 text-xs">Ask me anything about Ella Man properties or Addis Ababa real estate.</p>
         </div>
       )}
 

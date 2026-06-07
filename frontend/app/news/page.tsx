@@ -32,7 +32,7 @@ const POSTS = [
       "Navigating legal requirements and financial planning from abroad can be tricky. Here is our expert guide...",
     category: "Buying Tips",
     date: "March 10, 2026",
-    author: "Ethio Best Team",
+    author: "Ella Man Team",
     image: "/RealEstateImage/home-2.jpeg",
     featured: false,
   },
@@ -49,7 +49,7 @@ const POSTS = [
   },
   {
     id: 4,
-    title: "Ethio Best Wins 'Best Developer' Award 2025",
+    title: "Ella Man Wins 'Best Developer' Award 2025",
     excerpt:
       "We are proud to announce our latest achievement at the East African Property Awards held last month...",
     category: "Company News",

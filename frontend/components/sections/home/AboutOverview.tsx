@@ -79,7 +79,7 @@ const AboutOverview = () => {
 
             {/* Description */}
             <p className="text-gray-600 leading-relaxed">
-              Ethio Best Real Estate has been at the forefront of the real
+              Ella Man Real Estate has been at the forefront of the real
               estate industry, helping thousands of families find their perfect
               homes. With our deep understanding of the market and commitment to
               excellence, we've built a reputation for delivering exceptional

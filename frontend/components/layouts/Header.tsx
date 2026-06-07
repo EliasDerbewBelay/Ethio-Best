@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation"; // Added for active state
 import { PhoneCall, Menu, X } from "lucide-react";
-import FilteredLogo from "@/public/Logos/onlyLogoIcon.png";
+import BrandLogo from "@/public/Logos/ella-man-logo.png";
+import { BRAND_SHORT_NAME, BRAND_TAGLINE } from "@/constants/brand";
 import LanguageSelector from "../ui/languageSelector";
 
 interface NavLink {
@@ -36,8 +37,8 @@ export default function Header() {
           className="flex items-center gap-2 shrink-0 transition-transform active:scale-95"
         >
           <Image
-            src={FilteredLogo}
-            alt="Ethio Best Logo"
+            src={BrandLogo}
+            alt="Ella Man Real Estate Logo"
             height={45}
             width={45}
             className="h-auto w-10 md:w-12 object-contain"
@@ -45,10 +46,10 @@ export default function Header() {
           />
           <div className="flex flex-col leading-none">
             <h1 className="text-sm font-bold tracking-tight md:text-base">
-              ETHIO BEST
+              {BRAND_SHORT_NAME}
             </h1>
             <p className="text-[10px] text-purple-200 md:text-xs">
-              Real Estate
+              {BRAND_TAGLINE}
             </p>
           </div>
         </Link>

@@ -13,7 +13,7 @@ const testimonials = [
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
-      "Ethio Best Real Estate made our dream of owning a luxury home a reality. Their team was professional, attentive, and went above and beyond to find us the perfect property. The entire process was seamless from start to finish.",
+      "Ella Man Real Estate made our dream of owning a luxury home a reality. Their team was professional, attentive, and went above and beyond to find us the perfect property. The entire process was seamless from start to finish.",
     property: "Modern Luxury Villa",
     date: "March 2024",
   },
@@ -26,7 +26,7 @@ const testimonials = [
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
-      "As a real estate investor, I've worked with many agencies, but Ethio Best Real Estate stands out. Their market knowledge and negotiation skills helped me secure an amazing investment property at the best price.",
+      "As a real estate investor, I've worked with many agencies, but Ella Man Real Estate stands out. Their market knowledge and negotiation skills helped me secure an amazing investment property at the best price.",
     property: "Downtown Penthouse",
     date: "February 2024",
   },
@@ -39,7 +39,7 @@ const testimonials = [
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
     rating: 5,
     testimonial:
-      "I was nervous about buying my first home, but the team at Ethio Best Real Estate guided me through every step. They answered all my questions and made sure I felt confident in my decision. Highly recommended!",
+      "I was nervous about buying my first home, but the team at Ella Man Real Estate guided me through every step. They answered all my questions and made sure I felt confident in my decision. Highly recommended!",
     property: "Beachfront Estate",
     date: "January 2024",
   },

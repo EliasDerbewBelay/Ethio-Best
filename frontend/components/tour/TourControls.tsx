@@ -57,7 +57,7 @@ export default function TourControls({
                 <Box className="w-6 h-6 text-black" />
              </div>
              <h1 className="text-2xl font-black text-white drop-shadow-lg tracking-tight">
-               ETHIO BEST <span className="text-yellow-400">360°</span>
+               ELLA MAN <span className="text-yellow-400">360°</span>
              </h1>
           </div>
           <p className="text-white/60 text-xs font-bold uppercase tracking-widest pl-1">

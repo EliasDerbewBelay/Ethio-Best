@@ -78,10 +78,10 @@ const ContactPage = () => {
                         Email Us
                       </p>
                       <a
-                        href="mailto:info@ethiobest.com"
+                        href="mailto:info@ellamanrealestate.com"
                         className="text-lg font-semibold text-slate-900 hover:text-purple-700 transition-colors"
                       >
-                        info@ethiobest.com
+                        info@ellamanrealestate.com
                       </a>
                     </div>
                   </div>
@@ -202,7 +202,7 @@ const ContactPage = () => {
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20">
         <div className="w-full h-[450px] bg-slate-200 rounded-[2.5rem] overflow-hidden relative border-4 border-white shadow-2xl">
           <iframe
-            title="Ethio Best Office Location"
+            title="Ella Man Real Estate Office Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.553255146524!2d38.7844!3d9.00!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMDAnMDAuMCJOIDM4wrA0NycwMy44IkU!5e0!3m2!1sen!2set!4v1625000000000!5m2!1sen!2set"
             className="absolute inset-0 w-full h-full grayscale"
             style={{ border: 0 }}

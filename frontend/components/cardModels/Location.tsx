@@ -1,7 +1,7 @@
 import React from "react";
 
 const Location = () => {
-  // Using the specific coordinates for Ethio Best Real Estate to ensure the pointer is accurate
+  // Using the specific coordinates for Ella Man Real Estate to ensure the pointer is accurate
   const latitude = 8.995787;
   const longitude = 38.768823;
 
@@ -16,7 +16,7 @@ const Location = () => {
             Property Location
           </h2>
           <p className="text-gray-500 mt-1 text-lg">
-            Ethio Best Real Estate - Addis Ababa, Ethiopia
+            Ella Man Real Estate - Addis Ababa, Ethiopia
           </p>
         </div>
         <a
@@ -39,7 +39,7 @@ const Location = () => {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Ethio Best Real Estate Location Pin"
+          title="Ella Man Real Estate Location Pin"
           className="rounded-2xl"
         ></iframe>
       </div>

@@ -97,7 +97,7 @@ export default function ChatContainer() {
                   <span className="text-xl">🤖</span>
                </div>
                <div className="flex-1">
-                  <h3 className="text-white font-black uppercase tracking-widest text-sm leading-tight">Ethio Best AI</h3>
+                  <h3 className="text-white font-black uppercase tracking-widest text-sm leading-tight">Ella Man AI</h3>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     <span className="text-purple-100/60 text-[10px] font-bold uppercase tracking-widest">Active Assistant</span>

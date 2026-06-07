@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { BRAND_NAME, BRAND_EMAIL } from "@/constants/brand";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -89,7 +90,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-white mb-2">
-                Ethio Best Real Estate
+                {BRAND_NAME}
               </h2>
               <div className="h-0.5 w-12 bg-amber-500 mb-4"></div>
             </div>
@@ -156,7 +157,7 @@ const Footer = () => {
                   />
                 </svg>
                 <span className="text-gray-400">
-                  info@ethiobestrealestate.com
+                  {BRAND_EMAIL}
                 </span>
               </div>
             </div>
@@ -260,7 +261,7 @@ const Footer = () => {
 
             {/* Copyright */}
             <div className="text-gray-500 text-sm">
-              &copy; {currentYear} Ethio Best Real Estate. All rights reserved.
+              &copy; {currentYear} {BRAND_NAME}. All rights reserved.
             </div>
           </div>
         </div>

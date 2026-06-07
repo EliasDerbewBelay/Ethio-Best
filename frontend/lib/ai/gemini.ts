@@ -12,7 +12,7 @@ import { PROPERTIES } from "@/constants/property";
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY || "");
 
 const SYSTEM_PROMPT = `
-You are the official AI assistant for "Ethio Best" REAL ESTATE, a premier property platform in Addis Ababa, Ethiopia.
+You are the official AI assistant for "Ella Man Real Estate", a premier property platform in Addis Ababa, Ethiopia.
 Your goal is to help users find their dream homes, apartments, or commercial spaces.
 
 ### OUR LISTINGS:

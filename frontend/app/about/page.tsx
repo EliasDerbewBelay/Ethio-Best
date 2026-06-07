@@ -42,7 +42,7 @@ export default function AboutPage() {
             <span className="text-yellow-400">Heart of Ethiopia</span>
           </h1>
           <p className="text-purple-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Ethio Best Real Estate is a premier property solution provider
+            Ella Man Real Estate is a premier property solution provider
             dedicated to transforming the landscape of urban living in Addis
             Ababa and beyond.
           </p>
@@ -70,7 +70,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-gray-600 leading-relaxed text-lg">
               Founded with a vision to bridge the gap between quality and
-              affordability, Ethio Best Real Estate has grown into a market
+              affordability, Ella Man Real Estate has grown into a market
               leader. We specialize in luxury apartments, residential villas,
               and commercial spaces.
             </p>
